@@ -47,9 +47,10 @@ export async function POST(request: Request) {
       );
     }
 
-    console.error("Registration error:", error);
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("Registration error:", message, error);
     return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
+      { error: "Something went wrong. Please try again.", debug: message },
       { status: 500 }
     );
   }
