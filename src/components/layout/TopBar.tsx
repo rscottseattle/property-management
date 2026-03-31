@@ -1,6 +1,7 @@
 "use client";
 
-import { Menu, Bell, Plus, ChevronDown } from "lucide-react";
+import { Menu, Plus, ChevronDown } from "lucide-react";
+import NotificationBell from "@/components/layout/NotificationBell";
 
 interface TopBarProps {
   onMenuToggle: () => void;
@@ -34,9 +35,7 @@ export default function TopBar({ onMenuToggle, pageTitle }: TopBarProps) {
         </button>
 
         {/* Notifications */}
-        <button className="relative flex items-center justify-center h-9 w-9 rounded-lg text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-          <Bell className="h-5 w-5" />
-        </button>
+        <NotificationBell />
 
         {/* User avatar dropdown */}
         <button className="flex items-center gap-2 ml-1 sm:ml-2 p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">

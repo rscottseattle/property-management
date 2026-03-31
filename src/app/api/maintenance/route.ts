@@ -70,7 +70,7 @@ export async function GET(request: Request) {
     return b.createdAt.getTime() - a.createdAt.getTime();
   });
 
-  return Response.json({ data: requests, total });
+  return Response.json(requests);
 }
 
 export async function POST(request: Request) {

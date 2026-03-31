@@ -112,5 +112,29 @@ export async function GET(request: Request) {
     })
   );
 
-  return Response.json({ rentRoll, month });
+  const totalExpected = rentRoll.reduce((sum, e) => sum + e.monthlyRent, 0);
+  const totalCollected = rentRoll.reduce((sum, e) => sum + e.amountPaid, 0);
+  const outstanding = totalExpected - totalCollected;
+  const collectionRate = totalExpected > 0 ? (totalCollected / totalExpected) * 100 : 0;
+
+  const entries = rentRoll.map((e, i) => ({
+    id: `${e.unitId}-${month}-${i}`,
+    propertyId: e.propertyId,
+    propertyName: e.propertyName,
+    unitId: e.unitId,
+    unitName: e.unitLabel,
+    tenantId: e.tenantId,
+    tenantName: e.tenantName,
+    leaseId: e.leaseId,
+    monthlyRent: e.monthlyRent,
+    amountPaid: e.amountPaid,
+    amountDue: e.amountDue,
+    dueDate: e.dueDate,
+    status: e.isLate ? "late" : e.paymentStatus,
+  }));
+
+  return Response.json({
+    entries,
+    summary: { totalExpected, totalCollected, outstanding, collectionRate },
+  });
 }
