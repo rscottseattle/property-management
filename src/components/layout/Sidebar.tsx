@@ -10,6 +10,7 @@ import {
   DollarSign,
   Receipt,
   Wrench,
+  HardHat,
   BarChart3,
   Settings,
   LogOut,
@@ -22,6 +23,7 @@ const navItems = [
   { label: "Finances", href: "/finances", icon: DollarSign },
   { label: "Rent Roll", href: "/finances/rent-roll", icon: Receipt },
   { label: "Maintenance", href: "/maintenance", icon: Wrench },
+  { label: "Vendors", href: "/vendors", icon: HardHat },
   { label: "Reports", href: "/reports", icon: BarChart3 },
   { label: "Settings", href: "/settings", icon: Settings },
 ];
