@@ -50,7 +50,11 @@ export async function POST(request: Request) {
     const message = error instanceof Error ? error.message : String(error);
     console.error("Registration error:", message, error);
     return NextResponse.json(
-      { error: "Something went wrong. Please try again.", debug: message },
+      {
+        error: "Something went wrong. Please try again.",
+        debug: message,
+        dbUrl: process.env.DATABASE_URL?.replace(/:[^@]+@/, ":***@"),
+      },
       { status: 500 }
     );
   }
