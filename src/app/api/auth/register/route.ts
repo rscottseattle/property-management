@@ -47,14 +47,9 @@ export async function POST(request: Request) {
       );
     }
 
-    const message = error instanceof Error ? error.message : String(error);
-    console.error("Registration error:", message, error);
+    console.error("Registration error:", error);
     return NextResponse.json(
-      {
-        error: "Something went wrong. Please try again.",
-        debug: message,
-        dbUrl: process.env.DATABASE_URL?.replace(/:[^@]+@/, ":***@"),
-      },
+      { error: "Something went wrong. Please try again." },
       { status: 500 }
     );
   }
