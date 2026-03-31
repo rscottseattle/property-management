@@ -9,7 +9,10 @@ export function proxy(request: NextRequest) {
     pathname.startsWith("/register") ||
     pathname.startsWith("/forgot-password");
 
-  const isPublicRoute = pathname.startsWith("/pricing");
+  const isPublicRoute =
+    pathname.startsWith("/pricing") ||
+    pathname.startsWith("/privacy") ||
+    pathname.startsWith("/terms");
 
   const isApiAuthRoute = pathname.startsWith("/api/auth");
   const isStripeWebhook = pathname.startsWith("/api/stripe/webhook");

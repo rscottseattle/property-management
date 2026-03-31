@@ -14,8 +14,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Property Manager",
-  description: "Property management software for small landlords",
+  title: {
+    default: "Property Manager — Software for Small Landlords",
+    template: "%s | Property Manager",
+  },
+  description:
+    "Free property management software for small landlords. Track tenants, leases, rent payments, maintenance, and finances — all in one place.",
+  keywords: [
+    "property management software",
+    "landlord software",
+    "rent collection",
+    "tenant management",
+    "small landlord",
+    "property manager app",
+  ],
+  openGraph: {
+    title: "Property Manager — Software for Small Landlords",
+    description:
+      "Free property management software for small landlords. Track tenants, leases, rent payments, maintenance, and finances — all in one place.",
+    type: "website",
+    siteName: "Property Manager",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Property Manager — Software for Small Landlords",
+    description:
+      "Free property management software for small landlords. Track tenants, leases, rent payments, maintenance, and finances — all in one place.",
+  },
 };
 
 export default function RootLayout({
