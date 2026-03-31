@@ -1,92 +1,301 @@
-import { Home, Users, DollarSign, Wrench, Plus } from "lucide-react";
-import Link from "next/link";
+"use client";
 
-const stats = [
-  {
-    label: "Total Properties",
-    value: "0",
-    icon: Home,
-    color: "text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-950",
-  },
-  {
-    label: "Occupied Units",
-    value: "0",
-    icon: Users,
-    color: "text-green-600 bg-green-50 dark:text-green-400 dark:bg-green-950",
-  },
-  {
-    label: "Monthly Income",
-    value: "$0",
-    icon: DollarSign,
-    color:
-      "text-purple-600 bg-purple-50 dark:text-purple-400 dark:bg-purple-950",
-  },
-  {
-    label: "Open Requests",
-    value: "0",
-    icon: Wrench,
-    color:
-      "text-orange-600 bg-orange-50 dark:text-orange-400 dark:bg-orange-950",
-  },
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import {
+  Building2,
+  Home,
+  Users,
+  BarChart3,
+  DollarSign,
+  Plus,
+  CreditCard,
+  Wrench,
+} from "lucide-react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  Button,
+  LoadingSkeleton,
+} from "@/components/ui";
+import { formatCurrency, formatDate } from "@/lib/utils";
+import { AttentionItems } from "@/components/dashboard/AttentionItems";
+import { RecentActivity } from "@/components/dashboard/RecentActivity";
+
+interface DashboardData {
+  userName: string;
+  portfolioStats: {
+    totalProperties: number;
+    totalUnits: number;
+    occupiedUnits: number;
+    vacancyRate: number;
+    totalMonthlyRent: number;
+  };
+  financialSummary: {
+    currentMonth: { income: number; expenses: number; net: number };
+    yearToDate: { income: number; expenses: number; net: number };
+  };
+  attentionItems: Array<{
+    type: string;
+    message: string;
+    count: number;
+    link: string;
+    priority: "urgent" | "warning" | "info";
+  }>;
+  recentActivity: {
+    transactions: Array<{
+      id: string;
+      type: "INCOME" | "EXPENSE";
+      category: string;
+      amount: number;
+      propertyName: string;
+      date: string;
+    }>;
+    maintenanceRequests: Array<{
+      id: string;
+      title: string;
+      status: string;
+      priority: string;
+      propertyName: string;
+      date: string;
+    }>;
+  };
+}
+
+const statIcons = [Building2, Home, Users, BarChart3, DollarSign];
+const statColors = [
+  "text-blue-600 bg-blue-50",
+  "text-indigo-600 bg-indigo-50",
+  "text-green-600 bg-green-50",
+  "text-amber-600 bg-amber-50",
+  "text-purple-600 bg-purple-50",
 ];
 
-export default function DashboardPage() {
+function vacancyColor(rate: number): string {
+  if (rate <= 5) return "text-green-700";
+  if (rate <= 15) return "text-amber-700";
+  return "text-red-700";
+}
+
+function DashboardSkeleton() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold text-foreground">
-          Welcome to Property Manager
-        </h1>
-        <p className="mt-1 text-muted-foreground">
-          Here is an overview of your portfolio.
-        </p>
+        <LoadingSkeleton variant="text" width="280px" height="28px" />
+        <div className="mt-2">
+          <LoadingSkeleton variant="text" width="180px" height="16px" />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <LoadingSkeleton key={i} variant="card" count={1} />
+        ))}
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <LoadingSkeleton variant="card" count={1} />
+        <LoadingSkeleton variant="card" count={1} />
+      </div>
+      <LoadingSkeleton variant="card" count={1} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <LoadingSkeleton variant="card" count={1} />
+        <LoadingSkeleton variant="card" count={1} />
+      </div>
+    </div>
+  );
+}
+
+export default function DashboardPage() {
+  const [data, setData] = useState<DashboardData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchDashboard() {
+      try {
+        const res = await fetch("/api/dashboard");
+        if (res.ok) {
+          const json = await res.json();
+          setData(json);
+        }
+      } catch {
+        // Silently fail — skeleton will remain
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchDashboard();
+  }, []);
+
+  if (loading || !data) {
+    return <DashboardSkeleton />;
+  }
+
+  const { portfolioStats, financialSummary, attentionItems, recentActivity } =
+    data;
+
+  const stats = [
+    {
+      label: "Total Properties",
+      value: String(portfolioStats.totalProperties),
+    },
+    {
+      label: "Total Units",
+      value: String(portfolioStats.totalUnits),
+    },
+    {
+      label: "Occupied Units",
+      value: String(portfolioStats.occupiedUnits),
+    },
+    {
+      label: "Vacancy Rate",
+      value: `${portfolioStats.vacancyRate}%`,
+      valueClass: vacancyColor(portfolioStats.vacancyRate),
+    },
+    {
+      label: "Monthly Rent",
+      value: formatCurrency(portfolioStats.totalMonthlyRent),
+    },
+  ];
+
+  return (
+    <div className="space-y-8">
+      {/* Welcome Section */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-semibold text-gray-900">
+            Welcome back, {data.userName}
+          </h1>
+          <p className="mt-1 text-sm text-gray-500">
+            {formatDate(new Date())}
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            variant="primary"
+            size="sm"
+            href="/properties/new"
+            leftIcon={<Plus className="h-4 w-4" />}
+          >
+            Add Property
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            href="/transactions/new"
+            leftIcon={<CreditCard className="h-4 w-4" />}
+          >
+            Record Payment
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            href="/maintenance/new"
+            leftIcon={<Wrench className="h-4 w-4" />}
+          >
+            New Request
+          </Button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map((stat) => {
-          const Icon = stat.icon;
+      {/* Portfolio Stats Row */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        {stats.map((stat, i) => {
+          const Icon = statIcons[i];
           return (
-            <div
-              key={stat.label}
-              className="bg-card border border-border rounded-xl p-5"
-            >
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-medium text-muted-foreground">
-                  {stat.label}
-                </p>
-                <div
-                  className={`h-9 w-9 rounded-lg flex items-center justify-center ${stat.color}`}
-                >
-                  <Icon className="h-5 w-5" />
+            <Card key={stat.label} padding="none">
+              <div className="p-5">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-medium text-gray-500">
+                    {stat.label}
+                  </p>
+                  <div
+                    className={`h-9 w-9 rounded-lg flex items-center justify-center ${statColors[i]}`}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </div>
                 </div>
+                <p
+                  className={`mt-3 text-2xl font-semibold ${stat.valueClass ?? "text-gray-900"}`}
+                >
+                  {stat.value}
+                </p>
               </div>
-              <p className="mt-3 text-3xl font-semibold text-card-foreground">
-                {stat.value}
-              </p>
-            </div>
+            </Card>
           );
         })}
       </div>
 
-      <div className="bg-card border border-border rounded-xl p-12 text-center">
-        <div className="mx-auto h-16 w-16 rounded-full bg-muted flex items-center justify-center mb-4">
-          <Home className="h-8 w-8 text-muted-foreground" />
-        </div>
-        <h2 className="text-lg font-semibold text-foreground">
-          Add your first property to get started
-        </h2>
-        <p className="mt-2 text-sm text-muted-foreground max-w-md mx-auto">
-          Once you add a property, you will be able to track units, tenants,
-          finances, and maintenance requests all in one place.
-        </p>
-        <Link
-          href="/properties"
-          className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
-        >
-          <Plus className="h-4 w-4" />
-          Add Property
-        </Link>
+      {/* Financial Summary */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <FinancialCard
+          title="This Month"
+          income={financialSummary.currentMonth.income}
+          expenses={financialSummary.currentMonth.expenses}
+          net={financialSummary.currentMonth.net}
+        />
+        <FinancialCard
+          title="Year to Date"
+          income={financialSummary.yearToDate.income}
+          expenses={financialSummary.yearToDate.expenses}
+          net={financialSummary.yearToDate.net}
+        />
       </div>
+
+      {/* Attention Items */}
+      <AttentionItems items={attentionItems} />
+
+      {/* Recent Activity */}
+      <RecentActivity
+        transactions={recentActivity.transactions}
+        maintenanceRequests={recentActivity.maintenanceRequests}
+      />
     </div>
+  );
+}
+
+function FinancialCard({
+  title,
+  income,
+  expenses,
+  net,
+}: {
+  title: string;
+  income: number;
+  expenses: number;
+  net: number;
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-gray-500">Income</span>
+            <span className="text-sm font-semibold text-green-700">
+              {formatCurrency(income)}
+            </span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-gray-500">Expenses</span>
+            <span className="text-sm font-semibold text-red-700">
+              {formatCurrency(expenses)}
+            </span>
+          </div>
+          <div className="border-t border-gray-100 pt-3">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium text-gray-700">Net</span>
+              <span
+                className={`text-base font-bold ${net >= 0 ? "text-green-700" : "text-red-700"}`}
+              >
+                {formatCurrency(net)}
+              </span>
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

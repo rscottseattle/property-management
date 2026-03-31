@@ -7,6 +7,7 @@ import {
   BarChart3,
   Building2,
   Car,
+  Calendar,
   ArrowRight,
 } from "lucide-react";
 
@@ -45,6 +46,13 @@ const REPORT_CARDS = [
     icon: Car,
     href: "/reports/mileage",
     color: "bg-teal-100 text-teal-600",
+  },
+  {
+    title: "STR Analytics",
+    description: "Occupancy, ADR, RevPAN, and revenue breakdown for short-term rentals",
+    icon: Calendar,
+    href: "/reports/str-analytics",
+    color: "bg-pink-100 text-pink-600",
   },
 ] as const;
 
