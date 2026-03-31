@@ -170,6 +170,254 @@ function TabButton({
   );
 }
 
+// ---------- Payment History Tab ----------
+
+function PaymentHistoryTab({ tenantId }: { tenantId: string }) {
+  const [loading, setLoading] = useState(true);
+  const [entries, setEntries] = useState<LedgerEntryData[]>([]);
+  const [currentBalance, setCurrentBalance] = useState(0);
+
+  useEffect(() => {
+    async function fetchLedger() {
+      try {
+        const res = await fetch(`/api/tenants/${tenantId}/ledger`);
+        if (!res.ok) throw new Error("Failed to fetch ledger");
+        const data = await res.json();
+        setEntries((data.entries ?? []).slice(0, 5));
+        setCurrentBalance(data.currentBalance ?? 0);
+      } catch {
+        // silent
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchLedger();
+  }, [tenantId]);
+
+  if (loading) {
+    return <LoadingSkeleton variant="text" count={5} />;
+  }
+
+  if (entries.length === 0) {
+    return (
+      <Card>
+        <EmptyState
+          icon={CreditCard}
+          title="No payment history"
+          description="Charges, payments, and credits will appear here once transactions are recorded."
+          action={
+            <Button
+              size="sm"
+              leftIcon={<DollarSign className="h-4 w-4" />}
+              href={`/finances/new?type=INCOME&tenantId=${tenantId}`}
+              className="bg-green-600 hover:bg-green-700 text-white"
+            >
+              Record Payment
+            </Button>
+          }
+        />
+      </Card>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      {/* Current balance */}
+      <Card padding="md">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div
+              className={`rounded-lg p-2.5 ${
+                currentBalance > 0 ? "bg-red-50" : "bg-green-50"
+              }`}
+            >
+              <DollarSign
+                className={`h-5 w-5 ${
+                  currentBalance > 0 ? "text-red-600" : "text-green-600"
+                }`}
+              />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                Current Balance
+              </p>
+              <p
+                className={`text-lg font-semibold ${
+                  currentBalance > 0 ? "text-red-600" : "text-green-600"
+                }`}
+              >
+                {formatCurrency(currentBalance)}
+              </p>
+            </div>
+          </div>
+          <Button
+            size="sm"
+            href={`/finances/new?type=INCOME&tenantId=${tenantId}`}
+            leftIcon={<DollarSign className="h-4 w-4" />}
+            className="bg-green-600 hover:bg-green-700 text-white"
+          >
+            Record Payment
+          </Button>
+        </div>
+      </Card>
+
+      {/* Recent ledger entries */}
+      <Card>
+        <div className="px-4 py-3 border-b border-gray-200">
+          <h3 className="text-sm font-semibold text-gray-900">
+            Recent Transactions
+          </h3>
+        </div>
+
+        {/* Desktop table */}
+        <div className="hidden md:block overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="border-b border-gray-200 bg-gray-50/50">
+              <tr>
+                <th className="h-10 px-4 text-left font-medium text-gray-500 text-xs uppercase tracking-wider">
+                  Date
+                </th>
+                <th className="h-10 px-4 text-left font-medium text-gray-500 text-xs uppercase tracking-wider">
+                  Type
+                </th>
+                <th className="h-10 px-4 text-left font-medium text-gray-500 text-xs uppercase tracking-wider">
+                  Description
+                </th>
+                <th className="h-10 px-4 text-right font-medium text-gray-500 text-xs uppercase tracking-wider">
+                  Charge
+                </th>
+                <th className="h-10 px-4 text-right font-medium text-gray-500 text-xs uppercase tracking-wider">
+                  Payment
+                </th>
+                <th className="h-10 px-4 text-right font-medium text-gray-500 text-xs uppercase tracking-wider">
+                  Balance
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {entries.map((entry) => (
+                <LedgerEntryRow key={entry.id} entry={entry} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Mobile card list */}
+        <div className="md:hidden divide-y divide-gray-100">
+          {entries.map((entry) => (
+            <LedgerEntryMobileCard key={entry.id} entry={entry} />
+          ))}
+        </div>
+      </Card>
+
+      {/* View full ledger */}
+      <div className="flex justify-center">
+        <Button
+          variant="outline"
+          size="sm"
+          href={`/tenants/${tenantId}/ledger`}
+        >
+          View Full Ledger
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+// ---------- Inline ledger entry components for Payment History tab ----------
+
+const LEDGER_TYPE_CONFIG: Record<
+  string,
+  { label: string; variant: "info" | "warning" | "success" | "default" }
+> = {
+  RENT: { label: "Rent", variant: "info" },
+  LATE_FEE: { label: "Late Fee", variant: "warning" },
+  PAYMENT: { label: "Payment", variant: "success" },
+  CREDIT: { label: "Credit", variant: "default" },
+};
+
+interface LedgerEntryData {
+  id: string;
+  date: string;
+  type: string;
+  description: string;
+  chargeAmount: number | null;
+  paymentAmount: number | null;
+  runningBalance: number;
+}
+
+function LedgerEntryRow({ entry }: { entry: LedgerEntryData }) {
+  const config = LEDGER_TYPE_CONFIG[entry.type] ?? { label: entry.type, variant: "default" as const };
+
+  return (
+    <tr className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50/50 transition-colors">
+      <td className="px-4 py-3 text-sm text-gray-700 whitespace-nowrap">
+        {formatDate(entry.date)}
+      </td>
+      <td className="px-4 py-3">
+        <Badge variant={config.variant} size="sm">
+          {config.label}
+        </Badge>
+      </td>
+      <td className="px-4 py-3 text-sm text-gray-700">{entry.description}</td>
+      <td className="px-4 py-3 text-sm text-right text-gray-700 whitespace-nowrap">
+        {entry.chargeAmount != null && entry.chargeAmount > 0
+          ? formatCurrency(entry.chargeAmount)
+          : ""}
+      </td>
+      <td className="px-4 py-3 text-sm text-right text-green-600 whitespace-nowrap">
+        {entry.paymentAmount != null && entry.paymentAmount > 0
+          ? formatCurrency(entry.paymentAmount)
+          : ""}
+      </td>
+      <td
+        className={`px-4 py-3 text-sm text-right font-medium whitespace-nowrap ${
+          entry.runningBalance > 0 ? "text-red-600" : "text-green-600"
+        }`}
+      >
+        {formatCurrency(entry.runningBalance)}
+      </td>
+    </tr>
+  );
+}
+
+function LedgerEntryMobileCard({ entry }: { entry: LedgerEntryData }) {
+  const config = LEDGER_TYPE_CONFIG[entry.type] ?? { label: entry.type, variant: "default" as const };
+
+  return (
+    <div className="p-4">
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-sm text-gray-500">{formatDate(entry.date)}</span>
+        <Badge variant={config.variant} size="sm">
+          {config.label}
+        </Badge>
+      </div>
+      <p className="text-sm text-gray-700 mb-2">{entry.description}</p>
+      <div className="flex items-center justify-between text-sm">
+        <div className="flex gap-4">
+          {entry.chargeAmount != null && entry.chargeAmount > 0 && (
+            <span className="text-gray-700">
+              Charge: {formatCurrency(entry.chargeAmount)}
+            </span>
+          )}
+          {entry.paymentAmount != null && entry.paymentAmount > 0 && (
+            <span className="text-green-600">
+              Payment: {formatCurrency(entry.paymentAmount)}
+            </span>
+          )}
+        </div>
+        <span
+          className={`font-medium ${
+            entry.runningBalance > 0 ? "text-red-600" : "text-green-600"
+          }`}
+        >
+          {formatCurrency(entry.runningBalance)}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 // ---------- Main Page ----------
 
 export default function TenantDetailPage() {
@@ -696,11 +944,7 @@ export default function TenantDetailPage() {
 
           {/* Payment History Tab */}
           {activeTab === "payments" && (
-            <EmptyState
-              icon={CreditCard}
-              title="Payment tracking coming soon"
-              description="Payment history and rent tracking will appear here."
-            />
+            <PaymentHistoryTab tenantId={tenantId} />
           )}
         </div>
       </div>
