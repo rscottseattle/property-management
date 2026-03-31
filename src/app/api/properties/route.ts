@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { checkPropertyLimit } from "@/lib/subscription";
 
 const createPropertySchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -50,6 +51,19 @@ export async function POST(request: Request) {
     return Response.json(
       { error: parsed.error.issues[0].message },
       { status: 400 }
+    );
+  }
+
+  const { allowed, current, limit } = await checkPropertyLimit(session.user.id);
+  if (!allowed) {
+    return Response.json(
+      {
+        error:
+          "Free plan limited to 3 properties. Upgrade to Pro for unlimited properties.",
+        current,
+        limit,
+      },
+      { status: 403 }
     );
   }
 

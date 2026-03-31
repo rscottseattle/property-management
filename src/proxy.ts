@@ -9,10 +9,13 @@ export function proxy(request: NextRequest) {
     pathname.startsWith("/register") ||
     pathname.startsWith("/forgot-password");
 
-  const isApiAuthRoute = pathname.startsWith("/api/auth");
+  const isPublicRoute = pathname.startsWith("/pricing");
 
-  // Always allow API auth routes
-  if (isApiAuthRoute) {
+  const isApiAuthRoute = pathname.startsWith("/api/auth");
+  const isStripeWebhook = pathname.startsWith("/api/stripe/webhook");
+
+  // Always allow API auth routes, public routes, and Stripe webhooks
+  if (isApiAuthRoute || isPublicRoute || isStripeWebhook) {
     return NextResponse.next();
   }
 

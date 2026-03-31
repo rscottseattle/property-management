@@ -14,6 +14,7 @@ import {
   Trash2,
   Eye,
   EyeOff,
+  CreditCard,
 } from "lucide-react";
 import {
   Card,
@@ -29,6 +30,7 @@ import {
 } from "@/components/ui";
 import { useToast } from "@/components/ui";
 import { ThemeToggle } from "@/components/settings/ThemeToggle";
+import { BillingSection } from "@/components/subscription/BillingSection";
 
 // ─── Schemas ────────────────────────────────────────────────────────────────
 
@@ -60,6 +62,7 @@ type PasswordForm = z.infer<typeof passwordSchema>;
 
 const tabs = [
   { id: "profile", label: "Profile", icon: User },
+  { id: "billing", label: "Billing", icon: CreditCard },
   { id: "security", label: "Security", icon: Shield },
   { id: "preferences", label: "Preferences", icon: Sliders },
   { id: "notifications", label: "Notifications", icon: Bell },
@@ -146,6 +149,7 @@ export default function SettingsPage() {
       {/* Tab Content */}
       <div>
         {activeTab === "profile" && <ProfileTab />}
+        {activeTab === "billing" && <BillingSection />}
         {activeTab === "security" && <SecurityTab />}
         {activeTab === "preferences" && <PreferencesTab />}
         {activeTab === "notifications" && <NotificationsTab />}
