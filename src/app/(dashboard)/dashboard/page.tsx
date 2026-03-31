@@ -33,7 +33,6 @@ const stats = [
 export default function DashboardPage() {
   return (
     <div className="space-y-8">
-      {/* Welcome */}
       <div>
         <h1 className="text-2xl font-semibold text-foreground">
           Welcome to Property Manager
@@ -43,7 +42,6 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      {/* Stat cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((stat) => {
           const Icon = stat.icon;
@@ -70,7 +68,6 @@ export default function DashboardPage() {
         })}
       </div>
 
-      {/* Empty state */}
       <div className="bg-card border border-border rounded-xl p-12 text-center">
         <div className="mx-auto h-16 w-16 rounded-full bg-muted flex items-center justify-center mb-4">
           <Home className="h-8 w-8 text-muted-foreground" />
