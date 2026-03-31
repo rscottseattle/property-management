@@ -50,22 +50,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a1c1a;
-    --foreground: #e8e9e4;
-    --primary: #7a9e83;
-    --muted: #2a2c2a;
-    --muted-foreground: #9a9a9a;
-    --border: #333533;
-    --card: #222422;
-    --card-foreground: #e8e9e4;
-    --sidebar-bg: #222422;
-    --sidebar-border: #333533;
-    --topbar-bg: #222422;
-    --topbar-border: #333533;
-  }
-}
+/* Dark mode intentionally uses the same light values — the design is light-only for now.
+   Users can enable dark mode later via the theme toggle in settings. */
 
 body {
   background: var(--background);
