@@ -33,9 +33,9 @@ export interface BookingCardData {
 }
 
 const PLATFORM_COLORS: Record<string, string> = {
-  AIRBNB: "bg-pink-100 text-pink-700",
-  VRBO: "bg-blue-100 text-blue-700",
-  DIRECT: "bg-green-100 text-green-700",
+  AIRBNB: "bg-[#fae8e3] text-[#a04025]",
+  VRBO: "bg-[#e5eef5] text-[#4a6f8a]",
+  DIRECT: "bg-[#e8f0e9] text-[#3d5e44]",
   OTHER: "bg-gray-100 text-gray-700",
 };
 
@@ -50,10 +50,10 @@ const STATUS_CONFIG: Record<
 };
 
 const CLEANING_STATUS_CONFIG: Record<string, { label: string; color: string }> = {
-  PENDING: { label: "Cleaning Pending", color: "text-yellow-600" },
-  IN_PROGRESS: { label: "Cleaning In Progress", color: "text-blue-600" },
-  COMPLETED: { label: "Cleaning Done", color: "text-green-600" },
-  INSPECTED: { label: "Inspected", color: "text-green-700" },
+  PENDING: { label: "Cleaning Pending", color: "text-[#c9a96e]" },
+  IN_PROGRESS: { label: "Cleaning In Progress", color: "text-[#7b9eb8]" },
+  COMPLETED: { label: "Cleaning Done", color: "text-[#5c7c65]" },
+  INSPECTED: { label: "Inspected", color: "text-[#3d5e44]" },
 };
 
 function getNights(checkIn: string, checkOut: string): number {

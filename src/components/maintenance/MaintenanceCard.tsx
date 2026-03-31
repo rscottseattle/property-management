@@ -6,10 +6,10 @@ import { MessageSquare, User, Wrench as WrenchIcon } from "lucide-react";
 import { Badge } from "@/components/ui";
 
 const PRIORITY_COLORS: Record<string, string> = {
-  LOW: "bg-green-500",
-  MEDIUM: "bg-yellow-500",
-  HIGH: "bg-orange-500",
-  EMERGENCY: "bg-red-500",
+  LOW: "bg-[#5c7c65]",
+  MEDIUM: "bg-[#c9a96e]",
+  HIGH: "bg-[#d4856a]",
+  EMERGENCY: "bg-[#c75a3a]",
 };
 
 const STATUS_CONFIG: Record<string, { label: string; variant: "info" | "warning" | "success" | "neutral" | "default" }> = {

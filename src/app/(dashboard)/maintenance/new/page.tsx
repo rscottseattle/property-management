@@ -319,7 +319,7 @@ export default function NewMaintenanceRequestPage() {
                   <button
                     type="button"
                     onClick={() => removePhotoUrl(index)}
-                    className="rounded-md p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+                    className="rounded-md p-1.5 text-gray-400 hover:text-[#c75a3a] hover:bg-[#fae8e3] transition-colors"
                     aria-label={`Remove photo ${index + 1}`}
                   >
                     <X className="h-4 w-4" />

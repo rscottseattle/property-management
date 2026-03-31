@@ -44,8 +44,8 @@ export function StatusWorkflow({
                 <div
                   className={cn(
                     "h-8 w-8 rounded-full flex items-center justify-center text-xs font-semibold border-2 transition-colors",
-                    isPast && "bg-green-500 border-green-500 text-white",
-                    isCurrent && "bg-blue-500 border-blue-500 text-white",
+                    isPast && "bg-[#5c7c65] border-[#5c7c65] text-white",
+                    isCurrent && "bg-[#7b9eb8] border-[#7b9eb8] text-white",
                     isFuture && "bg-white border-gray-300 text-gray-400"
                   )}
                 >
@@ -54,8 +54,8 @@ export function StatusWorkflow({
                 <span
                   className={cn(
                     "mt-1.5 text-xs font-medium text-center whitespace-nowrap",
-                    isPast && "text-green-600",
-                    isCurrent && "text-blue-600",
+                    isPast && "text-[#5c7c65]",
+                    isCurrent && "text-[#7b9eb8]",
                     isFuture && "text-gray-400"
                   )}
                 >
@@ -69,7 +69,7 @@ export function StatusWorkflow({
                 <div
                   className={cn(
                     "flex-1 h-0.5 mx-1 mt-[-1.25rem]",
-                    index < currentIndex ? "bg-green-500" : "bg-gray-200"
+                    index < currentIndex ? "bg-[#5c7c65]" : "bg-gray-200"
                   )}
                 />
               )}

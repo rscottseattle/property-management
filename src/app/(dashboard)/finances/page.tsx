@@ -83,7 +83,7 @@ export default function FinancesPage() {
           <Button
             href="/finances/new?type=INCOME"
             leftIcon={<Plus className="h-4 w-4" />}
-            className="bg-green-600 hover:bg-green-700 text-white"
+            className="bg-[#5c7c65] hover:bg-[#4a6b53] text-white"
           >
             Record Payment
           </Button>
@@ -91,7 +91,7 @@ export default function FinancesPage() {
             href="/finances/new?type=EXPENSE"
             variant="outline"
             leftIcon={<Plus className="h-4 w-4" />}
-            className="border-red-300 text-red-700 hover:bg-red-50"
+            className="border-[#d4856a] text-[#d4856a] hover:bg-[#fef7f5]"
           >
             Add Expense
           </Button>
@@ -139,7 +139,7 @@ export default function FinancesPage() {
             <CardTitle>Recent Transactions</CardTitle>
             <Link
               href="/finances/transactions"
-              className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
+              className="text-sm font-medium text-[#5c7c65] hover:text-[#4a6b53] flex items-center gap-1"
             >
               View All
               <ArrowRight className="h-3.5 w-3.5" />

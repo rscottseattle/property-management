@@ -13,7 +13,7 @@ export default function DashboardShell({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#f3f4f0]">
       {/* Desktop sidebar */}
       <Sidebar />
 
@@ -26,7 +26,7 @@ export default function DashboardShell({
       {/* Main content area */}
       <div className="lg:pl-64 flex flex-col min-h-screen">
         <TopBar onMenuToggle={() => setSidebarOpen(true)} />
-        <main className="flex-1 p-4 sm:p-6 lg:p-8">{children}</main>
+        <main className="flex-1 p-6 lg:p-8">{children}</main>
       </div>
     </div>
   );

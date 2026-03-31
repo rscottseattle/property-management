@@ -65,9 +65,9 @@ export function TransactionRow({ transaction, onClick, compact = false }: Transa
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 min-w-0">
             {isIncome ? (
-              <ArrowUpCircle className="h-5 w-5 text-green-500 shrink-0" />
+              <ArrowUpCircle className="h-5 w-5 text-[#5c7c65] shrink-0" />
             ) : (
-              <ArrowDownCircle className="h-5 w-5 text-red-500 shrink-0" />
+              <ArrowDownCircle className="h-5 w-5 text-[#d4856a] shrink-0" />
             )}
             <div className="min-w-0">
               <p className="text-sm font-medium text-gray-900 truncate">
@@ -83,7 +83,7 @@ export function TransactionRow({ transaction, onClick, compact = false }: Transa
             <p
               className={cn(
                 "text-sm font-semibold",
-                isIncome ? "text-green-700" : "text-red-700"
+                isIncome ? "text-[#5c7c65]" : "text-[#d4856a]"
               )}
             >
               {isIncome ? "" : "-"}{formatCurrency(amount)}
@@ -110,9 +110,9 @@ export function TransactionRow({ transaction, onClick, compact = false }: Transa
       <td className="px-4 py-3">
         <div className="flex items-center gap-2">
           {isIncome ? (
-            <ArrowUpCircle className="h-4 w-4 text-green-500 shrink-0" />
+            <ArrowUpCircle className="h-4 w-4 text-[#5c7c65] shrink-0" />
           ) : (
-            <ArrowDownCircle className="h-4 w-4 text-red-500 shrink-0" />
+            <ArrowDownCircle className="h-4 w-4 text-[#d4856a] shrink-0" />
           )}
           <span className="text-xs font-medium text-gray-500 uppercase">
             {isIncome ? "Income" : "Expense"}
@@ -131,7 +131,7 @@ export function TransactionRow({ transaction, onClick, compact = false }: Transa
       <td
         className={cn(
           "px-4 py-3 text-sm font-semibold whitespace-nowrap text-right",
-          isIncome ? "text-green-700" : "text-red-700"
+          isIncome ? "text-[#5c7c65]" : "text-[#d4856a]"
         )}
       >
         {isIncome ? "" : "-"}{formatCurrency(amount)}

@@ -219,7 +219,7 @@ export default function CreateLeasePage() {
                   variant="ghost"
                   size="sm"
                   href="/tenants/new"
-                  className="inline text-blue-600 hover:text-blue-700 p-0 h-auto"
+                  className="inline text-[#5c7c65] hover:text-[#3d5e44] p-0 h-auto"
                 >
                   Create a tenant
                 </Button>{" "}

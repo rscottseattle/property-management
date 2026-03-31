@@ -91,7 +91,7 @@ export default function LeasesPage() {
             onClick={() => setStatusFilter(filter.value)}
             className={`px-3 py-1.5 text-sm font-medium rounded-full border transition-colors ${
               statusFilter === filter.value
-                ? "bg-blue-50 text-blue-700 border-blue-200"
+                ? "bg-[#e8f0e9] text-[#3d5e44] border-[#b8ccbe]"
                 : "bg-white text-gray-600 border-gray-200 hover:bg-gray-50"
             }`}
           >

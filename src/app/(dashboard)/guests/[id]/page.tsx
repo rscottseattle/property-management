@@ -74,7 +74,7 @@ function StarRating({ rating }: { rating: number | null }) {
         <Star
           key={i}
           className={`h-4 w-4 ${
-            i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
+            i < rating ? "text-[#c9a96e] fill-[#c9a96e]" : "text-gray-200"
           }`}
         />
       ))}
@@ -97,8 +97,8 @@ function StatCard({
   return (
     <Card padding="md">
       <div className="flex items-center gap-3">
-        <div className="rounded-lg bg-purple-50 p-2.5">
-          <Icon className="h-5 w-5 text-purple-600" />
+        <div className="rounded-lg bg-[#e5eef5] p-2.5">
+          <Icon className="h-5 w-5 text-[#7b9eb8]" />
         </div>
         <div>
           <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
@@ -280,7 +280,7 @@ export default function GuestDetailPage() {
               {guest.email ? (
                 <a
                   href={`mailto:${guest.email}`}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                  className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                 >
                   <Mail className="h-4 w-4" />
                   {guest.email}
@@ -297,7 +297,7 @@ export default function GuestDetailPage() {
               {guest.phone ? (
                 <a
                   href={`tel:${guest.phone}`}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                  className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                 >
                   <Phone className="h-4 w-4" />
                   {guest.phone}

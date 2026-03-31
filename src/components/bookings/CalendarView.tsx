@@ -32,17 +32,17 @@ interface CalendarViewProps {
 const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const PLATFORM_COLORS: Record<string, string> = {
-  AIRBNB: "bg-pink-200 text-pink-800 hover:bg-pink-300",
-  VRBO: "bg-blue-200 text-blue-800 hover:bg-blue-300",
-  DIRECT: "bg-green-200 text-green-800 hover:bg-green-300",
+  AIRBNB: "bg-[#f5d5cc] text-[#a04025] hover:bg-[#f0c4b8]",
+  VRBO: "bg-[#d4e3ef] text-[#4a6f8a] hover:bg-[#c4d8e8]",
+  DIRECT: "bg-[#d1e0d4] text-[#3d5e44] hover:bg-[#c0d4c4]",
   OTHER: "bg-gray-200 text-gray-800 hover:bg-gray-300",
 };
 
 const STATUS_COLORS: Record<string, string> = {
-  CONFIRMED: "bg-blue-200 text-blue-800 hover:bg-blue-300",
-  CHECKED_IN: "bg-green-200 text-green-800 hover:bg-green-300",
+  CONFIRMED: "bg-[#d4e3ef] text-[#4a6f8a] hover:bg-[#c4d8e8]",
+  CHECKED_IN: "bg-[#d1e0d4] text-[#3d5e44] hover:bg-[#c0d4c4]",
   CHECKED_OUT: "bg-gray-200 text-gray-700 hover:bg-gray-300",
-  CANCELLED: "bg-red-200 text-red-800 hover:bg-red-300",
+  CANCELLED: "bg-[#f5d5cc] text-[#a04025] hover:bg-[#f0c4b8]",
 };
 
 function getCalendarDays(month: Date): (Date | null)[] {
@@ -188,14 +188,14 @@ export default function CalendarView({
                 key={day.toISOString()}
                 className={cn(
                   "min-h-[80px] sm:min-h-[100px] border-b border-r border-gray-100 p-1",
-                  today && "bg-blue-50/50"
+                  today && "bg-[#e8f0e9]/50"
                 )}
               >
                 <div
                   className={cn(
                     "text-xs font-medium mb-1 w-6 h-6 flex items-center justify-center rounded-full",
                     today
-                      ? "bg-blue-600 text-white"
+                      ? "bg-[#5c7c65] text-white"
                       : "text-gray-700"
                   )}
                 >

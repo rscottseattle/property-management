@@ -71,7 +71,7 @@ function StarRating({ rating }: { rating: number | null }) {
         <Star
           key={i}
           className={`h-3.5 w-3.5 ${
-            i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
+            i < rating ? "text-[#c9a96e] fill-[#c9a96e]" : "text-gray-200"
           }`}
         />
       ))}
@@ -145,7 +145,7 @@ export default function GuestsPage() {
             placeholder="Search guests..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5c7c65] focus:border-transparent"
           />
         </div>
 
@@ -158,7 +158,7 @@ export default function GuestsPage() {
               onClick={() => setPlatformFilter(pf.value)}
               className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                 platformFilter === pf.value
-                  ? "bg-blue-100 text-blue-700"
+                  ? "bg-[#e8f0e9] text-[#3d5e44]"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
@@ -181,7 +181,7 @@ export default function GuestsPage() {
       {!loading && error && (
         <Card padding="lg">
           <div className="text-center">
-            <p className="text-sm text-red-600">{error}</p>
+            <p className="text-sm text-[#c75a3a]">{error}</p>
             <Button
               variant="outline"
               size="sm"
@@ -243,8 +243,8 @@ export default function GuestsPage() {
                 <div className="p-5 space-y-3">
                   {/* Header: avatar + name */}
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-50">
-                      <UserCircle className="h-5 w-5 text-purple-600" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#e5eef5]">
+                      <UserCircle className="h-5 w-5 text-[#7b9eb8]" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h3 className="text-sm font-semibold text-gray-900 truncate">

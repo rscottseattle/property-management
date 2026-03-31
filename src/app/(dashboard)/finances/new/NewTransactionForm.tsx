@@ -229,7 +229,7 @@ export function NewTransactionForm() {
                 className={cn(
                   "px-6 py-2 text-sm font-medium transition-colors",
                   isIncome
-                    ? "bg-green-600 text-white"
+                    ? "bg-[#5c7c65] text-white"
                     : "bg-white text-gray-700 hover:bg-gray-50"
                 )}
               >
@@ -241,7 +241,7 @@ export function NewTransactionForm() {
                 className={cn(
                   "px-6 py-2 text-sm font-medium transition-colors border-l border-gray-200",
                   !isIncome
-                    ? "bg-red-600 text-white"
+                    ? "bg-[#d4856a] text-white"
                     : "bg-white text-gray-700 hover:bg-gray-50"
                 )}
               >
@@ -428,7 +428,7 @@ export function NewTransactionForm() {
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  className="h-4 w-4 rounded border-gray-300 text-[#5c7c65] focus:ring-[#5c7c65]"
                   {...register("isRecurring")}
                 />
                 <span className="text-sm font-medium text-gray-700">

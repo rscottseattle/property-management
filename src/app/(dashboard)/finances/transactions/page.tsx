@@ -155,7 +155,7 @@ export default function TransactionsPage() {
           <Button
             href="/finances/new?type=INCOME"
             leftIcon={<Plus className="h-4 w-4" />}
-            className="bg-green-600 hover:bg-green-700 text-white"
+            className="bg-[#5c7c65] hover:bg-[#4a6b53] text-white"
           >
             Record Payment
           </Button>
@@ -163,7 +163,7 @@ export default function TransactionsPage() {
             href="/finances/new?type=EXPENSE"
             variant="outline"
             leftIcon={<Plus className="h-4 w-4" />}
-            className="border-red-300 text-red-700 hover:bg-red-50"
+            className="border-[#d4856a] text-[#d4856a] hover:bg-[#fef7f5]"
           >
             Add Expense
           </Button>
@@ -186,7 +186,7 @@ export default function TransactionsPage() {
                     className={cn(
                       "px-4 py-1.5 text-sm font-medium transition-colors",
                       typeFilter === pill.value
-                        ? "bg-blue-600 text-white"
+                        ? "bg-[#5c7c65] text-white"
                         : "bg-white text-gray-700 hover:bg-gray-50",
                       "border-r border-gray-200 last:border-r-0"
                     )}

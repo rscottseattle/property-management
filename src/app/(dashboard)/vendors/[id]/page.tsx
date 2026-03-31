@@ -90,17 +90,17 @@ const STATUS_CONFIG: Record<
 };
 
 const TRADE_COLORS: Record<string, { bg: string; text: string }> = {
-  Plumber: { bg: "bg-blue-50", text: "text-blue-700" },
-  Electrician: { bg: "bg-yellow-50", text: "text-yellow-700" },
-  HVAC: { bg: "bg-cyan-50", text: "text-cyan-700" },
+  Plumber: { bg: "bg-[#e5eef5]", text: "text-[#4a6f8a]" },
+  Electrician: { bg: "bg-[#f5eddc]", text: "text-[#8a6d2f]" },
+  HVAC: { bg: "bg-[#e5eef5]", text: "text-[#4a6f8a]" },
   "General Contractor": { bg: "bg-gray-100", text: "text-gray-700" },
-  Painter: { bg: "bg-purple-50", text: "text-purple-700" },
-  Landscaper: { bg: "bg-green-50", text: "text-green-700" },
-  Cleaner: { bg: "bg-teal-50", text: "text-teal-700" },
-  Roofer: { bg: "bg-orange-50", text: "text-orange-700" },
-  "Appliance Repair": { bg: "bg-rose-50", text: "text-rose-700" },
-  Locksmith: { bg: "bg-indigo-50", text: "text-indigo-700" },
-  "Pest Control": { bg: "bg-red-50", text: "text-red-700" },
+  Painter: { bg: "bg-[#f5eddc]", text: "text-[#8a6d2f]" },
+  Landscaper: { bg: "bg-[#e8f0e9]", text: "text-[#3d5e44]" },
+  Cleaner: { bg: "bg-[#e8f0e9]", text: "text-[#3d5e44]" },
+  Roofer: { bg: "bg-[#fae8e3]", text: "text-[#a04025]" },
+  "Appliance Repair": { bg: "bg-[#fae8e3]", text: "text-[#a04025]" },
+  Locksmith: { bg: "bg-[#e5eef5]", text: "text-[#4a6f8a]" },
+  "Pest Control": { bg: "bg-[#fae8e3]", text: "text-[#a04025]" },
   Other: { bg: "bg-gray-50", text: "text-gray-600" },
 };
 
@@ -130,8 +130,8 @@ function StatCard({
   return (
     <Card padding="md">
       <div className="flex items-center gap-3">
-        <div className="rounded-lg bg-blue-50 p-2.5">
-          <Icon className="h-5 w-5 text-blue-600" />
+        <div className="rounded-lg bg-[#e8f0e9] p-2.5">
+          <Icon className="h-5 w-5 text-[#5c7c65]" />
         </div>
         <div>
           <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
@@ -161,7 +161,7 @@ function TabButton({
       onClick={onClick}
       className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
         active
-          ? "border-blue-600 text-blue-600"
+          ? "border-[#5c7c65] text-[#5c7c65]"
           : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
       }`}
     >
@@ -381,7 +381,7 @@ export default function VendorDetailPage() {
               {vendor.phone ? (
                 <a
                   href={`tel:${vendor.phone}`}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                  className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                 >
                   <Phone className="h-4 w-4" />
                   {formatPhone(vendor.phone)}
@@ -398,7 +398,7 @@ export default function VendorDetailPage() {
               {vendor.email ? (
                 <a
                   href={`mailto:${vendor.email}`}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                  className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                 >
                   <Mail className="h-4 w-4" />
                   {vendor.email}
@@ -417,7 +417,7 @@ export default function VendorDetailPage() {
                   href={vendor.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                  className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                 >
                   <Globe className="h-4 w-4" />
                   {vendor.website.replace(/^https?:\/\//, "")}

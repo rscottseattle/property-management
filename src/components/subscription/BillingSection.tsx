@@ -128,8 +128,8 @@ export function BillingSection() {
       <Card>
         <CardHeader>
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100">
-              <Crown className="h-5 w-5 text-blue-600" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#e8f0e9]">
+              <Crown className="h-5 w-5 text-[#5c7c65]" />
             </div>
             <div>
               <CardTitle>Current Plan</CardTitle>

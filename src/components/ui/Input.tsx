@@ -37,20 +37,20 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-gray-700 mb-1.5"
+            className="block text-sm font-medium text-foreground mb-1.5"
           >
             {label}
           </label>
         )}
         <div className="relative flex">
           {leftAddon && (
-            <span className="inline-flex items-center rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-500">
+            <span className="inline-flex items-center rounded-l-xl border border-r-0 border-border bg-muted px-3 text-sm text-muted-foreground">
               {leftAddon}
             </span>
           )}
           <div className="relative flex-1">
             {leftIcon && (
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">
                 {leftIcon}
               </div>
             )}
@@ -59,36 +59,36 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               id={inputId}
               disabled={disabled}
               className={cn(
-                "block w-full rounded-lg border bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400",
-                "transition-colors",
+                "block w-full rounded-xl border bg-white px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/60",
+                "transition-all duration-200",
                 "focus:outline-none focus:ring-2 focus:ring-offset-0",
                 hasError
-                  ? "border-red-300 focus:border-red-500 focus:ring-red-500/20"
-                  : "border-gray-300 focus:border-blue-500 focus:ring-blue-500/20",
+                  ? "border-danger focus:border-danger focus:ring-danger/20"
+                  : "border-border focus:border-primary focus:ring-primary/20",
                 leftIcon && "pl-10",
                 rightIcon && "pr-10",
                 leftAddon && "rounded-l-none",
                 rightAddon && "rounded-r-none",
-                disabled && "cursor-not-allowed bg-gray-50 text-gray-500",
+                disabled && "cursor-not-allowed bg-muted text-muted-foreground",
                 className
               )}
               {...props}
             />
             {rightIcon && (
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground">
                 {rightIcon}
               </div>
             )}
           </div>
           {rightAddon && (
-            <span className="inline-flex items-center rounded-r-lg border border-l-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-500">
+            <span className="inline-flex items-center rounded-r-xl border border-l-0 border-border bg-muted px-3 text-sm text-muted-foreground">
               {rightAddon}
             </span>
           )}
         </div>
-        {error && <p className="mt-1.5 text-sm text-red-600">{error}</p>}
+        {error && <p className="mt-1.5 text-sm text-danger">{error}</p>}
         {helperText && !error && (
-          <p className="mt-1.5 text-sm text-gray-500">{helperText}</p>
+          <p className="mt-1.5 text-sm text-muted-foreground">{helperText}</p>
         )}
       </div>
     );

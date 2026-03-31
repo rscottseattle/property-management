@@ -6,17 +6,17 @@ import { StarRating } from "@/components/vendors/StarRating";
 import { formatCurrency } from "@/lib/utils";
 
 const TRADE_COLORS: Record<string, { bg: string; text: string }> = {
-  Plumber: { bg: "bg-blue-50", text: "text-blue-700" },
-  Electrician: { bg: "bg-yellow-50", text: "text-yellow-700" },
-  HVAC: { bg: "bg-cyan-50", text: "text-cyan-700" },
+  Plumber: { bg: "bg-[#e5eef5]", text: "text-[#4a6f8a]" },
+  Electrician: { bg: "bg-[#f5eddc]", text: "text-[#8a6d2f]" },
+  HVAC: { bg: "bg-[#e5eef5]", text: "text-[#4a6f8a]" },
   "General Contractor": { bg: "bg-gray-100", text: "text-gray-700" },
-  Painter: { bg: "bg-purple-50", text: "text-purple-700" },
-  Landscaper: { bg: "bg-green-50", text: "text-green-700" },
-  Cleaner: { bg: "bg-teal-50", text: "text-teal-700" },
-  Roofer: { bg: "bg-orange-50", text: "text-orange-700" },
-  "Appliance Repair": { bg: "bg-rose-50", text: "text-rose-700" },
-  Locksmith: { bg: "bg-indigo-50", text: "text-indigo-700" },
-  "Pest Control": { bg: "bg-red-50", text: "text-red-700" },
+  Painter: { bg: "bg-[#f5eddc]", text: "text-[#8a6d2f]" },
+  Landscaper: { bg: "bg-[#e8f0e9]", text: "text-[#3d5e44]" },
+  Cleaner: { bg: "bg-[#e8f0e9]", text: "text-[#3d5e44]" },
+  Roofer: { bg: "bg-[#fae8e3]", text: "text-[#a04025]" },
+  "Appliance Repair": { bg: "bg-[#fae8e3]", text: "text-[#a04025]" },
+  Locksmith: { bg: "bg-[#e5eef5]", text: "text-[#4a6f8a]" },
+  "Pest Control": { bg: "bg-[#fae8e3]", text: "text-[#a04025]" },
   Other: { bg: "bg-gray-50", text: "text-gray-600" },
 };
 
@@ -69,7 +69,7 @@ export function VendorCard({ vendor, onClick }: VendorCardProps) {
             <a
               href={`tel:${vendor.phone}`}
               onClick={(e) => e.stopPropagation()}
-              className="text-xs text-gray-500 hover:text-blue-600 flex items-center gap-1.5 truncate"
+              className="text-xs text-gray-500 hover:text-[#5c7c65] flex items-center gap-1.5 truncate"
             >
               <Phone className="h-3 w-3 shrink-0" />
               {vendor.phone}
@@ -79,7 +79,7 @@ export function VendorCard({ vendor, onClick }: VendorCardProps) {
             <a
               href={`mailto:${vendor.email}`}
               onClick={(e) => e.stopPropagation()}
-              className="text-xs text-gray-500 hover:text-blue-600 flex items-center gap-1.5 truncate"
+              className="text-xs text-gray-500 hover:text-[#5c7c65] flex items-center gap-1.5 truncate"
             >
               <Mail className="h-3 w-3 shrink-0" />
               {vendor.email}

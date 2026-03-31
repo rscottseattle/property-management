@@ -130,8 +130,8 @@ function StatCard({
   return (
     <Card padding="md">
       <div className="flex items-center gap-3">
-        <div className="rounded-lg bg-blue-50 p-2.5">
-          <Icon className="h-5 w-5 text-blue-600" />
+        <div className="rounded-lg bg-[#e8f0e9] p-2.5">
+          <Icon className="h-5 w-5 text-[#5c7c65]" />
         </div>
         <div>
           <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
@@ -161,7 +161,7 @@ function TabButton({
       onClick={onClick}
       className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
         active
-          ? "border-blue-600 text-blue-600"
+          ? "border-[#5c7c65] text-[#5c7c65]"
           : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
       }`}
     >
@@ -210,7 +210,7 @@ function PaymentHistoryTab({ tenantId }: { tenantId: string }) {
               size="sm"
               leftIcon={<DollarSign className="h-4 w-4" />}
               href={`/finances/new?type=INCOME&tenantId=${tenantId}`}
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className="bg-[#5c7c65] hover:bg-[#4a6952] text-white"
             >
               Record Payment
             </Button>
@@ -228,12 +228,12 @@ function PaymentHistoryTab({ tenantId }: { tenantId: string }) {
           <div className="flex items-center gap-3">
             <div
               className={`rounded-lg p-2.5 ${
-                currentBalance > 0 ? "bg-red-50" : "bg-green-50"
+                currentBalance > 0 ? "bg-[#fae8e3]" : "bg-[#e8f0e9]"
               }`}
             >
               <DollarSign
                 className={`h-5 w-5 ${
-                  currentBalance > 0 ? "text-red-600" : "text-green-600"
+                  currentBalance > 0 ? "text-[#c75a3a]" : "text-[#5c7c65]"
                 }`}
               />
             </div>
@@ -243,7 +243,7 @@ function PaymentHistoryTab({ tenantId }: { tenantId: string }) {
               </p>
               <p
                 className={`text-lg font-semibold ${
-                  currentBalance > 0 ? "text-red-600" : "text-green-600"
+                  currentBalance > 0 ? "text-[#c75a3a]" : "text-[#5c7c65]"
                 }`}
               >
                 {formatCurrency(currentBalance)}
@@ -254,7 +254,7 @@ function PaymentHistoryTab({ tenantId }: { tenantId: string }) {
             size="sm"
             href={`/finances/new?type=INCOME&tenantId=${tenantId}`}
             leftIcon={<DollarSign className="h-4 w-4" />}
-            className="bg-green-600 hover:bg-green-700 text-white"
+            className="bg-[#5c7c65] hover:bg-[#4a6952] text-white"
           >
             Record Payment
           </Button>
@@ -365,14 +365,14 @@ function LedgerEntryRow({ entry }: { entry: LedgerEntryData }) {
           ? formatCurrency(entry.chargeAmount)
           : ""}
       </td>
-      <td className="px-4 py-3 text-sm text-right text-green-600 whitespace-nowrap">
+      <td className="px-4 py-3 text-sm text-right text-[#5c7c65] whitespace-nowrap">
         {entry.paymentAmount != null && entry.paymentAmount > 0
           ? formatCurrency(entry.paymentAmount)
           : ""}
       </td>
       <td
         className={`px-4 py-3 text-sm text-right font-medium whitespace-nowrap ${
-          entry.runningBalance > 0 ? "text-red-600" : "text-green-600"
+          entry.runningBalance > 0 ? "text-[#c75a3a]" : "text-[#5c7c65]"
         }`}
       >
         {formatCurrency(entry.runningBalance)}
@@ -401,14 +401,14 @@ function LedgerEntryMobileCard({ entry }: { entry: LedgerEntryData }) {
             </span>
           )}
           {entry.paymentAmount != null && entry.paymentAmount > 0 && (
-            <span className="text-green-600">
+            <span className="text-[#5c7c65]">
               Payment: {formatCurrency(entry.paymentAmount)}
             </span>
           )}
         </div>
         <span
           className={`font-medium ${
-            entry.runningBalance > 0 ? "text-red-600" : "text-green-600"
+            entry.runningBalance > 0 ? "text-[#c75a3a]" : "text-[#5c7c65]"
           }`}
         >
           {formatCurrency(entry.runningBalance)}
@@ -630,7 +630,7 @@ export default function TenantDetailPage() {
               {tenant.email ? (
                 <a
                   href={`mailto:${tenant.email}`}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                  className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                 >
                   <Mail className="h-4 w-4" />
                   {tenant.email}
@@ -647,7 +647,7 @@ export default function TenantDetailPage() {
               {tenant.phone ? (
                 <a
                   href={`tel:${tenant.phone}`}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                  className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                 >
                   <Phone className="h-4 w-4" />
                   {formatPhone(tenant.phone)}
@@ -678,7 +678,7 @@ export default function TenantDetailPage() {
               {tenant.emergencyPhone ? (
                 <a
                   href={`tel:${tenant.emergencyPhone}`}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                  className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                 >
                   <Phone className="h-4 w-4" />
                   {formatPhone(tenant.emergencyPhone)}

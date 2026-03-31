@@ -361,15 +361,15 @@ export default function PropertyComparisonPage() {
                             )}
                           </div>
                         </TableCell>
-                        <TableCell className="text-right text-green-700 font-medium">
+                        <TableCell className="text-right text-[#5c7c65] font-medium">
                           {formatCurrency(prop.income)}
                         </TableCell>
-                        <TableCell className="text-right text-red-700 font-medium">
+                        <TableCell className="text-right text-[#d4856a] font-medium">
                           {formatCurrency(prop.expenses)}
                         </TableCell>
                         <TableCell
                           className={`text-right font-bold ${
-                            prop.noi >= 0 ? "text-blue-700" : "text-red-700"
+                            prop.noi >= 0 ? "text-[#5c7c65]" : "text-[#d4856a]"
                           }`}
                         >
                           {formatCurrency(prop.noi)}

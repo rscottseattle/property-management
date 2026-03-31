@@ -225,7 +225,7 @@ export default function NotificationsPage() {
                 key={notification.id}
                 className={`overflow-hidden transition-colors ${
                   !notification.read
-                    ? "border-l-4 border-l-blue-500"
+                    ? "border-l-4 border-l-[#5c7c65]"
                     : ""
                 }`}
               >
@@ -282,7 +282,7 @@ export default function NotificationsPage() {
                     )}
                     <button
                       onClick={() => handleDelete(notification.id)}
-                      className="p-1.5 rounded-md text-muted-foreground hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                      className="p-1.5 rounded-md text-muted-foreground hover:text-[#c75a3a] hover:bg-[#fae8e3] dark:hover:bg-[#c75a3a]/10 transition-colors"
                       title="Delete"
                     >
                       <Trash2 className="h-4 w-4" />

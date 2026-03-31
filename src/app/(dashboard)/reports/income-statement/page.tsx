@@ -309,13 +309,13 @@ export default function IncomeStatementPage() {
                     {data.income.map((item) => (
                       <TableRow key={item.category}>
                         <TableCell>{item.label}</TableCell>
-                        <TableCell className="text-right font-medium text-green-700">
+                        <TableCell className="text-right font-medium text-[#5c7c65]">
                           {formatCurrency(item.amount)}
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
                           <div className="w-full bg-gray-100 rounded-full h-2">
                             <div
-                              className="bg-green-500 h-2 rounded-full"
+                              className="bg-[#5c7c65] h-2 rounded-full"
                               style={{
                                 width: `${Math.round(
                                   (item.amount / maxAmount) * 100
@@ -330,7 +330,7 @@ export default function IncomeStatementPage() {
                       <TableCell className="font-semibold text-gray-900">
                         Total Income
                       </TableCell>
-                      <TableCell className="text-right font-bold text-green-700">
+                      <TableCell className="text-right font-bold text-[#5c7c65]">
                         {formatCurrency(data.totalIncome)}
                       </TableCell>
                       <TableCell className="hidden sm:table-cell" />
@@ -364,13 +364,13 @@ export default function IncomeStatementPage() {
                     {data.expenses.map((item) => (
                       <TableRow key={item.category}>
                         <TableCell>{item.label}</TableCell>
-                        <TableCell className="text-right font-medium text-red-700">
+                        <TableCell className="text-right font-medium text-[#d4856a]">
                           {formatCurrency(item.amount)}
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
                           <div className="w-full bg-gray-100 rounded-full h-2">
                             <div
-                              className="bg-red-400 h-2 rounded-full"
+                              className="bg-[#d4856a] h-2 rounded-full"
                               style={{
                                 width: `${Math.round(
                                   (item.amount / maxAmount) * 100
@@ -385,7 +385,7 @@ export default function IncomeStatementPage() {
                       <TableCell className="font-semibold text-gray-900">
                         Total Expenses
                       </TableCell>
-                      <TableCell className="text-right font-bold text-red-700">
+                      <TableCell className="text-right font-bold text-[#d4856a]">
                         {formatCurrency(data.totalExpenses)}
                       </TableCell>
                       <TableCell className="hidden sm:table-cell" />
@@ -404,7 +404,7 @@ export default function IncomeStatementPage() {
               </span>
               <span
                 className={`text-lg font-bold ${
-                  data.netIncome >= 0 ? "text-blue-700" : "text-red-700"
+                  data.netIncome >= 0 ? "text-[#5c7c65]" : "text-[#d4856a]"
                 }`}
               >
                 {formatCurrency(data.netIncome)}

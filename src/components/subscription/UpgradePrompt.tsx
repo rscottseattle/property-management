@@ -32,27 +32,27 @@ export function UpgradePrompt({
   const content = (
     <div
       className={cn(
-        "relative rounded-lg border border-blue-200 bg-blue-50 p-4",
+        "relative rounded-lg border border-[#b8ccbe] bg-[#e8f0e9] p-4",
         className
       )}
     >
       <button
         onClick={handleDismiss}
-        className="absolute right-3 top-3 text-blue-400 hover:text-blue-600 transition-colors"
+        className="absolute right-3 top-3 text-[#5c7c65]/60 hover:text-[#5c7c65] transition-colors"
         aria-label="Dismiss"
       >
         <X className="h-4 w-4" />
       </button>
 
       <div className="flex items-start gap-3 pr-6">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-100">
-          <Lock className="h-5 w-5 text-blue-600" />
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#d1e0d4]">
+          <Lock className="h-5 w-5 text-[#5c7c65]" />
         </div>
         <div className="flex-1">
-          <p className="font-medium text-blue-900">
+          <p className="font-medium text-[#2a4a32]">
             Upgrade to {planRequired} to access {feature}
           </p>
-          <p className="mt-1 text-sm text-blue-700">
+          <p className="mt-1 text-sm text-[#3d5e44]">
             Unlock this feature and more with a {planRequired} subscription.
           </p>
           <div className="mt-3">

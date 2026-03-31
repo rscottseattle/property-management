@@ -63,18 +63,18 @@ export default function PricingPage() {
       {/* Header / Branding */}
       <div className="mx-auto max-w-5xl">
         <div className="flex items-center justify-center gap-2 mb-12">
-          <Building2 className="h-8 w-8 text-indigo-600" />
-          <span className="text-2xl font-bold text-slate-900">
+          <Building2 className="h-8 w-8 text-[#5c7c65]" />
+          <span className="text-2xl font-bold text-[#1a1a1a]">
             Property Manager
           </span>
         </div>
 
         {/* Heading */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-slate-900 sm:text-5xl">
+          <h1 className="text-4xl font-bold text-[#1a1a1a] sm:text-5xl">
             Simple, transparent pricing
           </h1>
-          <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-[#6b6b6b] max-w-2xl mx-auto">
             Start free and upgrade as your portfolio grows. All plans include a
             14-day free trial on paid tiers.
           </p>
@@ -142,14 +142,14 @@ export default function PricingPage() {
 
         {/* FAQ Section */}
         <div className="mx-auto max-w-2xl mb-16">
-          <h2 className="text-2xl font-bold text-slate-900 text-center mb-8">
+          <h2 className="text-2xl font-bold text-[#1a1a1a] text-center mb-8">
             Frequently asked questions
           </h2>
           <div className="space-y-2">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="rounded-lg border border-slate-200 bg-white"
+                className="rounded-lg border border-[#e0e1dc] bg-white"
               >
                 <button
                   onClick={() =>
@@ -157,18 +157,18 @@ export default function PricingPage() {
                   }
                   className="flex w-full items-center justify-between px-5 py-4 text-left"
                 >
-                  <span className="font-medium text-slate-900">
+                  <span className="font-medium text-[#1a1a1a]">
                     {faq.question}
                   </span>
                   {openFaq === index ? (
-                    <ChevronUp className="h-5 w-5 text-slate-500 shrink-0" />
+                    <ChevronUp className="h-5 w-5 text-[#6b6b6b] shrink-0" />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-slate-500 shrink-0" />
+                    <ChevronDown className="h-5 w-5 text-[#6b6b6b] shrink-0" />
                   )}
                 </button>
                 {openFaq === index && (
                   <div className="px-5 pb-4">
-                    <p className="text-sm text-slate-600">{faq.answer}</p>
+                    <p className="text-sm text-[#6b6b6b]">{faq.answer}</p>
                   </div>
                 )}
               </div>
@@ -178,11 +178,11 @@ export default function PricingPage() {
 
         {/* Footer */}
         <div className="text-center pb-8">
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-[#6b6b6b]">
             Already have an account?{" "}
             <Link
               href="/login"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
+              className="font-medium text-[#5c7c65] hover:text-[#3d5e44]"
             >
               Sign in
             </Link>

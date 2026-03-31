@@ -1,19 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
-  --primary: #2563eb;
+  --background: #f3f4f0;
+  --foreground: #1a1a1a;
+  --primary: #5c7c65;
   --primary-foreground: #ffffff;
-  --muted: #f9fafb;
-  --muted-foreground: #6b7280;
-  --border: #e5e7eb;
+  --secondary: #d4856a;
+  --secondary-foreground: #ffffff;
+  --accent: #7b9eb8;
+  --accent-foreground: #ffffff;
+  --muted: #e8e9e4;
+  --muted-foreground: #6b6b6b;
+  --border: #e0e1dc;
   --card: #ffffff;
-  --card-foreground: #111827;
+  --card-foreground: #1a1a1a;
   --sidebar-bg: #ffffff;
-  --sidebar-border: #e5e7eb;
+  --sidebar-border: #ebebeb;
   --topbar-bg: #ffffff;
-  --topbar-border: #e5e7eb;
+  --topbar-border: #ebebeb;
+  --success: #5c7c65;
+  --warning: #c9a96e;
+  --danger: #c75a3a;
+  --info: #7b9eb8;
 }
 
 @theme inline {
@@ -21,6 +29,10 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
@@ -30,25 +42,28 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-topbar-bg: var(--topbar-bg);
   --color-topbar-border: var(--topbar-border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #030712;
-    --foreground: #f3f4f6;
-    --primary: #3b82f6;
-    --primary-foreground: #ffffff;
-    --muted: #111827;
-    --muted-foreground: #9ca3af;
-    --border: #1f2937;
-    --card: #0f172a;
-    --card-foreground: #f3f4f6;
-    --sidebar-bg: #0f172a;
-    --sidebar-border: #1f2937;
-    --topbar-bg: #0f172a;
-    --topbar-border: #1f2937;
+    --background: #1a1c1a;
+    --foreground: #e8e9e4;
+    --primary: #7a9e83;
+    --muted: #2a2c2a;
+    --muted-foreground: #9a9a9a;
+    --border: #333533;
+    --card: #222422;
+    --card-foreground: #e8e9e4;
+    --sidebar-bg: #222422;
+    --sidebar-border: #333533;
+    --topbar-bg: #222422;
+    --topbar-border: #333533;
   }
 }
 

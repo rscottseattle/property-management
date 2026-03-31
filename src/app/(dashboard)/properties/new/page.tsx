@@ -286,7 +286,7 @@ export default function NewPropertyPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             {errors.units?.root?.message && (
-              <p className="text-sm text-red-600">
+              <p className="text-sm text-[#c75a3a]">
                 {errors.units.root.message}
               </p>
             )}
@@ -304,7 +304,7 @@ export default function NewPropertyPage() {
                     <button
                       type="button"
                       onClick={() => remove(index)}
-                      className="rounded-md p-1 text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+                      className="rounded-md p-1 text-gray-400 hover:text-[#c75a3a] hover:bg-[#fae8e3] transition-colors"
                       aria-label={`Remove unit ${index + 1}`}
                     >
                       <X className="h-4 w-4" />

@@ -116,7 +116,7 @@ function TabButton({
       onClick={onClick}
       className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
         active
-          ? "border-blue-600 text-blue-600"
+          ? "border-[#5c7c65] text-[#5c7c65]"
           : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
       }`}
     >
@@ -422,7 +422,7 @@ export default function MaintenanceDetailPage() {
                 <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Completed
                 </p>
-                <p className="text-sm font-medium text-green-600">
+                <p className="text-sm font-medium text-[#5c7c65]">
                   {formatDate(request.completedDate)}
                 </p>
               </div>
@@ -442,7 +442,7 @@ export default function MaintenanceDetailPage() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative group rounded-lg overflow-hidden border border-gray-200 h-20 w-20 bg-gray-50 flex items-center justify-center hover:border-blue-300 transition-colors"
+                    className="relative group rounded-lg overflow-hidden border border-gray-200 h-20 w-20 bg-gray-50 flex items-center justify-center hover:border-[#5c7c65] transition-colors"
                   >
                     <img
                       src={url}
@@ -516,8 +516,8 @@ export default function MaintenanceDetailPage() {
                       className="flex gap-3 py-3 border-b border-gray-100 last:border-b-0"
                     >
                       <div className="shrink-0 mt-0.5">
-                        <div className="h-8 w-8 rounded-full bg-blue-50 flex items-center justify-center">
-                          <MessageSquare className="h-4 w-4 text-blue-500" />
+                        <div className="h-8 w-8 rounded-full bg-[#e5eef5] flex items-center justify-center">
+                          <MessageSquare className="h-4 w-4 text-[#7b9eb8]" />
                         </div>
                       </div>
                       <div className="flex-1 min-w-0">
@@ -570,8 +570,8 @@ export default function MaintenanceDetailPage() {
                         >
                           <div className="flex items-center gap-3 min-w-0">
                             <div className="shrink-0">
-                              <div className="h-8 w-8 rounded-full bg-green-50 flex items-center justify-center">
-                                <DollarSign className="h-4 w-4 text-green-600" />
+                              <div className="h-8 w-8 rounded-full bg-[#e8f0e9] flex items-center justify-center">
+                                <DollarSign className="h-4 w-4 text-[#5c7c65]" />
                               </div>
                             </div>
                             <div className="min-w-0">
@@ -599,7 +599,7 @@ export default function MaintenanceDetailPage() {
                                 href={expense.receiptUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-blue-500 transition-colors"
+                                className="text-gray-400 hover:text-[#7b9eb8] transition-colors"
                                 title="View receipt"
                               >
                                 <Receipt className="h-4 w-4" />

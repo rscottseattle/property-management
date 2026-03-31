@@ -58,7 +58,7 @@ export function LedgerEntry({ entry }: LedgerEntryProps) {
           ? formatCurrency(entry.chargeAmount)
           : ""}
       </td>
-      <td className="px-4 py-3 align-middle text-sm text-right text-green-600 whitespace-nowrap">
+      <td className="px-4 py-3 align-middle text-sm text-right text-[#5c7c65] whitespace-nowrap">
         {entry.paymentAmount != null && entry.paymentAmount > 0
           ? formatCurrency(entry.paymentAmount)
           : ""}
@@ -66,7 +66,7 @@ export function LedgerEntry({ entry }: LedgerEntryProps) {
       <td
         className={cn(
           "px-4 py-3 align-middle text-sm text-right font-medium whitespace-nowrap",
-          balancePositive ? "text-red-600" : "text-green-600"
+          balancePositive ? "text-[#c75a3a]" : "text-[#5c7c65]"
         )}
       >
         {formatCurrency(entry.runningBalance)}
@@ -99,7 +99,7 @@ export function LedgerEntryCard({ entry }: LedgerEntryProps) {
             </span>
           )}
           {entry.paymentAmount != null && entry.paymentAmount > 0 && (
-            <span className="text-green-600">
+            <span className="text-[#5c7c65]">
               Payment: {formatCurrency(entry.paymentAmount)}
             </span>
           )}
@@ -107,7 +107,7 @@ export function LedgerEntryCard({ entry }: LedgerEntryProps) {
         <span
           className={cn(
             "font-medium",
-            balancePositive ? "text-red-600" : "text-green-600"
+            balancePositive ? "text-[#c75a3a]" : "text-[#5c7c65]"
           )}
         >
           {formatCurrency(entry.runningBalance)}

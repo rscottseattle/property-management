@@ -121,8 +121,8 @@ function StatCard({
   return (
     <Card padding="md">
       <div className="flex items-center gap-3">
-        <div className="rounded-lg bg-blue-50 p-2.5">
-          <Icon className="h-5 w-5 text-blue-600" />
+        <div className="rounded-lg bg-[#e8f0e9] p-2.5">
+          <Icon className="h-5 w-5 text-[#5c7c65]" />
         </div>
         <div>
           <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
@@ -152,7 +152,7 @@ function TabButton({
       onClick={onClick}
       className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
         active
-          ? "border-blue-600 text-blue-600"
+          ? "border-[#5c7c65] text-[#5c7c65]"
           : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
       }`}
     >
@@ -478,7 +478,7 @@ export default function BookingDetailPage() {
                       {booking.guest.email ? (
                         <a
                           href={`mailto:${booking.guest.email}`}
-                          className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                          className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                         >
                           <Mail className="h-4 w-4" />
                           {booking.guest.email}
@@ -495,7 +495,7 @@ export default function BookingDetailPage() {
                       {booking.guest.phone ? (
                         <a
                           href={`tel:${booking.guest.phone}`}
-                          className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1.5"
+                          className="text-sm font-medium text-[#5c7c65] hover:text-[#3d5e44] flex items-center gap-1.5"
                         >
                           <Phone className="h-4 w-4" />
                           {booking.guest.phone}
@@ -577,16 +577,16 @@ export default function BookingDetailPage() {
                               {i > 0 && (
                                 <div
                                   className={`h-0.5 w-6 ${
-                                    isComplete ? "bg-green-400" : "bg-gray-200"
+                                    isComplete ? "bg-[#5c7c65]" : "bg-gray-200"
                                   }`}
                                 />
                               )}
                               <div
                                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium ${
                                   isCurrent
-                                    ? "bg-blue-100 text-blue-700 ring-2 ring-blue-300"
+                                    ? "bg-[#e5eef5] text-[#4a6f8a] ring-2 ring-[#7b9eb8]/50"
                                     : isComplete
-                                    ? "bg-green-100 text-green-700"
+                                    ? "bg-[#e8f0e9] text-[#3d5e44]"
                                     : "bg-gray-100 text-gray-500"
                                 }`}
                               >
@@ -764,36 +764,36 @@ export default function BookingDetailPage() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between py-3 border-b border-gray-100">
                     <div className="flex items-center gap-2">
-                      <DollarSign className="h-4 w-4 text-green-600" />
+                      <DollarSign className="h-4 w-4 text-[#5c7c65]" />
                       <span className="text-sm font-medium text-gray-700">
                         Booking Revenue
                       </span>
                     </div>
-                    <span className="text-sm font-semibold text-green-600">
+                    <span className="text-sm font-semibold text-[#5c7c65]">
                       +{formatCurrency(bookingRevenue)}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between py-3 border-b border-gray-100">
                     <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-red-500" />
+                      <Sparkles className="h-4 w-4 text-[#c75a3a]" />
                       <span className="text-sm font-medium text-gray-700">
                         Cleaning Cost
                       </span>
                     </div>
-                    <span className="text-sm font-semibold text-red-500">
+                    <span className="text-sm font-semibold text-[#c75a3a]">
                       -{formatCurrency(cleaningCost)}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between py-3 border-b border-gray-100">
                     <div className="flex items-center gap-2">
-                      <FileText className="h-4 w-4 text-red-500" />
+                      <FileText className="h-4 w-4 text-[#c75a3a]" />
                       <span className="text-sm font-medium text-gray-700">
                         Platform Fees (est. 3%)
                       </span>
                     </div>
-                    <span className="text-sm font-semibold text-red-500">
+                    <span className="text-sm font-semibold text-[#c75a3a]">
                       -{formatCurrency(platformFees)}
                     </span>
                   </div>
@@ -804,7 +804,7 @@ export default function BookingDetailPage() {
                     </span>
                     <span
                       className={`text-lg font-bold ${
-                        netRevenue >= 0 ? "text-green-600" : "text-red-600"
+                        netRevenue >= 0 ? "text-[#5c7c65]" : "text-[#c75a3a]"
                       }`}
                     >
                       {formatCurrency(netRevenue)}

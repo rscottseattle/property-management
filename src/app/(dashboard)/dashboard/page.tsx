@@ -66,17 +66,17 @@ interface DashboardData {
 
 const statIcons = [Building2, Home, Users, BarChart3, DollarSign];
 const statColors = [
-  "text-blue-600 bg-blue-50",
-  "text-indigo-600 bg-indigo-50",
-  "text-green-600 bg-green-50",
-  "text-amber-600 bg-amber-50",
-  "text-purple-600 bg-purple-50",
+  "text-[#d4856a] bg-[#fae8e3]",
+  "text-[#5c7c65] bg-[#e8f0e9]",
+  "text-[#7b9eb8] bg-[#e5eef5]",
+  "text-[#c9a96e] bg-[#f5eddc]",
+  "text-[#5c7c65] bg-[#e8f0e9]",
 ];
 
 function vacancyColor(rate: number): string {
-  if (rate <= 5) return "text-green-700";
-  if (rate <= 15) return "text-amber-700";
-  return "text-red-700";
+  if (rate <= 5) return "text-[#5c7c65]";
+  if (rate <= 15) return "text-[#c9a96e]";
+  return "text-[#d4856a]";
 }
 
 function DashboardSkeleton() {
@@ -210,7 +210,7 @@ export default function DashboardPage() {
                     {stat.label}
                   </p>
                   <div
-                    className={`h-9 w-9 rounded-lg flex items-center justify-center ${statColors[i]}`}
+                    className={`h-10 w-10 rounded-full flex items-center justify-center ${statColors[i]}`}
                   >
                     <Icon className="h-5 w-5" />
                   </div>
@@ -274,13 +274,13 @@ function FinancialCard({
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-500">Income</span>
-            <span className="text-sm font-semibold text-green-700">
+            <span className="text-sm font-semibold text-[#5c7c65]">
               {formatCurrency(income)}
             </span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-500">Expenses</span>
-            <span className="text-sm font-semibold text-red-700">
+            <span className="text-sm font-semibold text-[#d4856a]">
               {formatCurrency(expenses)}
             </span>
           </div>
@@ -288,7 +288,7 @@ function FinancialCard({
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-gray-700">Net</span>
               <span
-                className={`text-base font-bold ${net >= 0 ? "text-green-700" : "text-red-700"}`}
+                className={`text-base font-bold ${net >= 0 ? "text-[#5c7c65]" : "text-[#d4856a]"}`}
               >
                 {formatCurrency(net)}
               </span>

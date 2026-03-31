@@ -8,7 +8,7 @@ export interface TableWrapperProps extends HTMLAttributes<HTMLDivElement> {
 
 const Table = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
-    <div className="w-full overflow-x-auto">
+    <div className="w-full overflow-x-auto rounded-2xl border border-border/50">
       <table
         ref={ref}
         className={cn("w-full caption-bottom text-sm", className)}
@@ -25,7 +25,7 @@ const TableHeader = forwardRef<
 >(({ className, ...props }, ref) => (
   <thead
     ref={ref}
-    className={cn("border-b border-gray-200 bg-gray-50/50", className)}
+    className={cn("border-b border-border/50 bg-muted/50", className)}
     {...props}
   />
 ));
@@ -39,7 +39,7 @@ const TableBody = forwardRef<
     ref={ref}
     className={cn(
       "[&_tr:last-child]:border-0",
-      striped && "[&_tr:nth-child(even)]:bg-gray-50/50",
+      striped && "[&_tr:nth-child(even)]:bg-muted/30",
       className
     )}
     {...props}
@@ -54,8 +54,8 @@ const TableRow = forwardRef<
   <tr
     ref={ref}
     className={cn(
-      "border-b border-gray-100 transition-colors",
-      hoverable && "hover:bg-gray-50",
+      "border-b border-border/30 transition-colors duration-200",
+      hoverable && "hover:bg-muted/40",
       className
     )}
     {...props}
@@ -70,7 +70,7 @@ const TableHead = forwardRef<
   <th
     ref={ref}
     className={cn(
-      "h-10 px-4 text-left align-middle font-medium text-gray-500 text-xs uppercase tracking-wider",
+      "h-10 px-4 text-left align-middle font-medium text-muted-foreground text-xs uppercase tracking-wider",
       className
     )}
     {...props}
@@ -84,7 +84,7 @@ const TableCell = forwardRef<
 >(({ className, ...props }, ref) => (
   <td
     ref={ref}
-    className={cn("px-4 py-3 align-middle text-gray-700", className)}
+    className={cn("px-4 py-3 align-middle text-foreground", className)}
     {...props}
   />
 ));

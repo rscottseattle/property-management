@@ -126,12 +126,12 @@ export default function NotificationBell() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="relative flex items-center justify-center h-9 w-9 rounded-lg text-muted-foreground hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        className="relative flex items-center justify-center h-9 w-9 rounded-xl text-[#6b6b6b] hover:text-[#1a1a1a] hover:bg-[#f5f5f2] transition-colors"
         aria-label="Notifications"
       >
         <Bell className="h-5 w-5" />
         {unreadCount > 0 && (
-          <span className="absolute -top-0.5 -right-0.5 flex items-center justify-center h-4 min-w-[16px] px-1 text-[10px] font-bold text-white bg-red-500 rounded-full">
+          <span className="absolute -top-0.5 -right-0.5 flex items-center justify-center h-4 min-w-[16px] px-1 text-[10px] font-bold text-white bg-[#d4856a] rounded-full">
             {unreadCount > 99 ? "99+" : unreadCount}
           </span>
         )}
@@ -139,21 +139,21 @@ export default function NotificationBell() {
 
       {/* Dropdown panel */}
       <div
-        className={`absolute right-0 top-full mt-2 w-80 sm:w-96 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg z-50 transition-all duration-200 origin-top-right ${
+        className={`absolute right-0 top-full mt-2 w-80 sm:w-96 bg-white border border-[#e0e1dc]/50 rounded-2xl shadow-lg z-50 transition-all duration-200 origin-top-right ${
           open
             ? "opacity-100 scale-100 pointer-events-auto"
             : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800">
-          <h3 className="text-sm font-semibold text-foreground">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-[#ebebeb]">
+          <h3 className="text-sm font-semibold text-[#1a1a1a]">
             Notifications
           </h3>
           {unreadCount > 0 && (
             <button
               onClick={handleMarkAllRead}
-              className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors"
+              className="flex items-center gap-1 text-xs text-[#5c7c65] hover:text-[#5c7c65]/80 transition-colors"
             >
               <CheckCheck className="h-3.5 w-3.5" />
               Mark all as read
@@ -164,11 +164,11 @@ export default function NotificationBell() {
         {/* Notification list */}
         <div className="max-h-[400px] overflow-y-auto">
           {loading ? (
-            <div className="px-4 py-8 text-center text-sm text-muted-foreground">
+            <div className="px-4 py-8 text-center text-sm text-[#6b6b6b]">
               Loading...
             </div>
           ) : notifications.length === 0 ? (
-            <div className="px-4 py-8 text-center text-sm text-muted-foreground">
+            <div className="px-4 py-8 text-center text-sm text-[#6b6b6b]">
               No notifications yet
             </div>
           ) : (
@@ -176,30 +176,30 @@ export default function NotificationBell() {
               <button
                 key={notification.id}
                 onClick={() => handleNotificationClick(notification)}
-                className="w-full text-left flex items-start gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors border-b border-gray-50 dark:border-gray-800 last:border-b-0"
+                className="w-full text-left flex items-start gap-3 px-4 py-3 hover:bg-[#f5f5f2] transition-colors border-b border-[#ebebeb]/50 last:border-b-0"
               >
                 {/* Unread dot */}
                 <span
                   className={`mt-1.5 flex-shrink-0 h-2 w-2 rounded-full ${
                     notification.read
-                      ? "bg-gray-300 dark:bg-gray-600"
-                      : "bg-blue-500"
+                      ? "bg-[#e0e1dc]"
+                      : "bg-[#5c7c65]"
                   }`}
                 />
                 <div className="flex-1 min-w-0">
                   <p
                     className={`text-sm truncate ${
                       notification.read
-                        ? "text-muted-foreground"
-                        : "font-semibold text-foreground"
+                        ? "text-[#6b6b6b]"
+                        : "font-semibold text-[#1a1a1a]"
                     }`}
                   >
                     {notification.title}
                   </p>
-                  <p className="text-xs text-muted-foreground truncate mt-0.5">
+                  <p className="text-xs text-[#6b6b6b] truncate mt-0.5">
                     {notification.message}
                   </p>
-                  <p className="text-[11px] text-muted-foreground/70 mt-1">
+                  <p className="text-[11px] text-[#6b6b6b]/70 mt-1">
                     {timeAgo(notification.createdAt)}
                   </p>
                 </div>
@@ -209,13 +209,13 @@ export default function NotificationBell() {
         </div>
 
         {/* Footer */}
-        <div className="border-t border-gray-100 dark:border-gray-800 px-4 py-2.5">
+        <div className="border-t border-[#ebebeb] px-4 py-2.5">
           <button
             onClick={() => {
               setOpen(false);
               router.push("/notifications");
             }}
-            className="w-full text-center text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+            className="w-full text-center text-xs font-medium text-[#5c7c65] hover:text-[#5c7c65]/80 transition-colors"
           >
             View all notifications
           </button>

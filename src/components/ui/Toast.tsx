@@ -96,23 +96,23 @@ function ToastContainer({
 const typeConfig = {
   success: {
     icon: CheckCircle2,
-    containerClass: "border-green-200 bg-white",
-    iconClass: "text-green-500",
+    containerClass: "border-[#e8f0e9] bg-card",
+    iconClass: "text-success",
   },
   error: {
     icon: AlertCircle,
-    containerClass: "border-red-200 bg-white",
-    iconClass: "text-red-500",
+    containerClass: "border-[#fae8e3] bg-card",
+    iconClass: "text-danger",
   },
   info: {
     icon: Info,
-    containerClass: "border-blue-200 bg-white",
-    iconClass: "text-blue-500",
+    containerClass: "border-[#e5eef5] bg-card",
+    iconClass: "text-info",
   },
   warning: {
     icon: AlertTriangle,
-    containerClass: "border-yellow-200 bg-white",
-    iconClass: "text-yellow-500",
+    containerClass: "border-[#f5eddc] bg-card",
+    iconClass: "text-warning",
   },
 } as const;
 
@@ -135,7 +135,7 @@ function ToastItem({
     <div
       role="alert"
       className={cn(
-        "pointer-events-auto flex items-start gap-3 rounded-lg border p-4 shadow-lg transition-all duration-300",
+        "pointer-events-auto flex items-start gap-3 rounded-xl border p-4 shadow-lg transition-all duration-300",
         config.containerClass,
         mounted
           ? "translate-x-0 opacity-100"
@@ -144,14 +144,14 @@ function ToastItem({
     >
       <Icon className={cn("h-5 w-5 shrink-0 mt-0.5", config.iconClass)} />
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-gray-900">{toast.title}</p>
+        <p className="text-sm font-medium text-card-foreground">{toast.title}</p>
         {toast.description && (
-          <p className="mt-0.5 text-sm text-gray-500">{toast.description}</p>
+          <p className="mt-0.5 text-sm text-muted-foreground">{toast.description}</p>
         )}
       </div>
       <button
         onClick={() => onDismiss(toast.id)}
-        className="shrink-0 rounded-md p-0.5 text-gray-400 hover:text-gray-600 transition-colors"
+        className="shrink-0 rounded-lg p-0.5 text-muted-foreground hover:text-foreground transition-colors"
         aria-label="Dismiss"
       >
         <X className="h-4 w-4" />

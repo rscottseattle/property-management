@@ -69,7 +69,7 @@ export function RecentActivity({
           <CardTitle>Recent Transactions</CardTitle>
           <Link
             href="/transactions"
-            className="text-sm text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1"
+            className="text-sm text-[#5c7c65] hover:text-[#4a6b53] font-medium flex items-center gap-1"
           >
             View All
             <ChevronRight className="h-3.5 w-3.5" />
@@ -89,8 +89,8 @@ export function RecentActivity({
                     <div
                       className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 ${
                         t.type === "INCOME"
-                          ? "bg-green-50 text-green-600"
-                          : "bg-red-50 text-red-600"
+                          ? "bg-[#e8f0e9] text-[#5c7c65]"
+                          : "bg-[#fae8e3] text-[#d4856a]"
                       }`}
                     >
                       {t.type === "INCOME" ? (
@@ -112,8 +112,8 @@ export function RecentActivity({
                     <p
                       className={`text-sm font-semibold ${
                         t.type === "INCOME"
-                          ? "text-green-700"
-                          : "text-red-700"
+                          ? "text-[#5c7c65]"
+                          : "text-[#d4856a]"
                       }`}
                     >
                       {t.type === "INCOME" ? "+" : "-"}
@@ -136,7 +136,7 @@ export function RecentActivity({
           <CardTitle>Maintenance Updates</CardTitle>
           <Link
             href="/maintenance"
-            className="text-sm text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1"
+            className="text-sm text-[#5c7c65] hover:text-[#4a6b53] font-medium flex items-center gap-1"
           >
             View All
             <ChevronRight className="h-3.5 w-3.5" />

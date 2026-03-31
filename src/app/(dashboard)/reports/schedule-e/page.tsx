@@ -227,7 +227,7 @@ export default function ScheduleEPage() {
                   <span className="text-sm font-medium text-gray-700">
                     Rental Income
                   </span>
-                  <span className="text-sm font-bold text-green-700">
+                  <span className="text-sm font-bold text-[#5c7c65]">
                     {formatCurrency(prop.rentalIncome)}
                   </span>
                 </div>
@@ -258,7 +258,7 @@ export default function ScheduleEPage() {
                     <span className="text-sm font-medium text-gray-700">
                       Total Expenses
                     </span>
-                    <span className="text-sm font-bold text-red-700">
+                    <span className="text-sm font-bold text-[#d4856a]">
                       {formatCurrency(prop.totalExpenses)}
                     </span>
                   </div>
@@ -268,7 +268,7 @@ export default function ScheduleEPage() {
                     </span>
                     <span
                       className={`text-sm font-bold ${
-                        prop.netIncome >= 0 ? "text-blue-700" : "text-red-700"
+                        prop.netIncome >= 0 ? "text-[#5c7c65]" : "text-[#d4856a]"
                       }`}
                     >
                       {formatCurrency(prop.netIncome)}
@@ -290,7 +290,7 @@ export default function ScheduleEPage() {
                   <span className="text-sm font-medium text-gray-700">
                     Total Rental Income
                   </span>
-                  <span className="text-sm font-bold text-green-700">
+                  <span className="text-sm font-bold text-[#5c7c65]">
                     {formatCurrency(data.totals.rentalIncome)}
                   </span>
                 </div>
@@ -298,7 +298,7 @@ export default function ScheduleEPage() {
                   <span className="text-sm font-medium text-gray-700">
                     Total Expenses
                   </span>
-                  <span className="text-sm font-bold text-red-700">
+                  <span className="text-sm font-bold text-[#d4856a]">
                     {formatCurrency(data.totals.totalExpenses)}
                   </span>
                 </div>
@@ -309,8 +309,8 @@ export default function ScheduleEPage() {
                   <span
                     className={`text-sm font-bold ${
                       data.totals.netIncome >= 0
-                        ? "text-blue-700"
-                        : "text-red-700"
+                        ? "text-[#5c7c65]"
+                        : "text-[#d4856a]"
                     }`}
                   >
                     {formatCurrency(data.totals.netIncome)}

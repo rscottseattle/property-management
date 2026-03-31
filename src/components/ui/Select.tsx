@@ -37,7 +37,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label
             htmlFor={selectId}
-            className="block text-sm font-medium text-gray-700 mb-1.5"
+            className="block text-sm font-medium text-foreground mb-1.5"
           >
             {label}
           </label>
@@ -47,14 +47,14 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           id={selectId}
           disabled={disabled}
           className={cn(
-            "block w-full rounded-lg border bg-white px-3 py-2 text-sm text-gray-900",
-            "transition-colors appearance-none",
-            "bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')] bg-[length:20px] bg-[right_8px_center] bg-no-repeat pr-10",
+            "block w-full rounded-xl border bg-white px-3 py-2 text-sm text-foreground",
+            "transition-all duration-200 appearance-none",
+            "bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%236B6B6B%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')] bg-[length:20px] bg-[right_8px_center] bg-no-repeat pr-10",
             "focus:outline-none focus:ring-2 focus:ring-offset-0",
             hasError
-              ? "border-red-300 focus:border-red-500 focus:ring-red-500/20"
-              : "border-gray-300 focus:border-blue-500 focus:ring-blue-500/20",
-            disabled && "cursor-not-allowed bg-gray-50 text-gray-500",
+              ? "border-danger focus:border-danger focus:ring-danger/20"
+              : "border-border focus:border-primary focus:ring-primary/20",
+            disabled && "cursor-not-allowed bg-muted text-muted-foreground",
             className
           )}
           {...props}
@@ -70,9 +70,9 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             </option>
           ))}
         </select>
-        {error && <p className="mt-1.5 text-sm text-red-600">{error}</p>}
+        {error && <p className="mt-1.5 text-sm text-danger">{error}</p>}
         {helperText && !error && (
-          <p className="mt-1.5 text-sm text-gray-500">{helperText}</p>
+          <p className="mt-1.5 text-sm text-muted-foreground">{helperText}</p>
         )}
       </div>
     );

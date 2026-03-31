@@ -28,9 +28,9 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     <div
       ref={ref}
       className={cn(
-        "rounded-lg border border-gray-200 bg-white",
+        "rounded-2xl border border-border/50 bg-card",
         variant === "default" && "shadow-sm",
-        hover && "transition-shadow hover:shadow-md",
+        hover && "transition-shadow duration-200 hover:shadow-md",
         paddingStyles[padding],
         className
       )}
@@ -57,7 +57,7 @@ const CardTitle = forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("text-lg font-semibold text-gray-900 leading-none", className)}
+    className={cn("text-lg font-semibold text-card-foreground leading-none", className)}
     {...props}
   />
 ));
@@ -69,7 +69,7 @@ const CardDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-gray-500", className)}
+    className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
 ));
@@ -87,7 +87,7 @@ const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     <div
       ref={ref}
       className={cn(
-        "flex items-center px-6 pt-2 pb-6 border-t border-gray-100",
+        "flex items-center px-6 pt-2 pb-6 border-t border-border/50",
         className
       )}
       {...props}

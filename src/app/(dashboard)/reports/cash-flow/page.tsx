@@ -236,15 +236,15 @@ export default function CashFlowPage() {
                       <TableCell className="font-medium text-gray-900">
                         {m.monthLabel}
                       </TableCell>
-                      <TableCell className="text-right text-green-700">
+                      <TableCell className="text-right text-[#5c7c65]">
                         {formatCurrency(m.income)}
                       </TableCell>
-                      <TableCell className="text-right text-red-700">
+                      <TableCell className="text-right text-[#d4856a]">
                         {formatCurrency(m.expenses)}
                       </TableCell>
                       <TableCell
                         className={`text-right font-medium ${
-                          m.net >= 0 ? "text-blue-700" : "text-red-700"
+                          m.net >= 0 ? "text-[#5c7c65]" : "text-[#d4856a]"
                         }`}
                       >
                         {formatCurrency(m.net)}
@@ -254,7 +254,7 @@ export default function CashFlowPage() {
                           <div className="flex items-center gap-2">
                             <div className="w-full bg-gray-100 rounded-full h-1.5">
                               <div
-                                className="bg-green-500 h-1.5 rounded-full"
+                                className="bg-[#5c7c65] h-1.5 rounded-full"
                                 style={{
                                   width: `${Math.round(
                                     (m.income / maxVal) * 100
@@ -266,7 +266,7 @@ export default function CashFlowPage() {
                           <div className="flex items-center gap-2">
                             <div className="w-full bg-gray-100 rounded-full h-1.5">
                               <div
-                                className="bg-red-400 h-1.5 rounded-full"
+                                className="bg-[#d4856a] h-1.5 rounded-full"
                                 style={{
                                   width: `${Math.round(
                                     (m.expenses / maxVal) * 100
@@ -285,15 +285,15 @@ export default function CashFlowPage() {
                     <TableCell className="font-bold text-gray-900">
                       Totals
                     </TableCell>
-                    <TableCell className="text-right font-bold text-green-700">
+                    <TableCell className="text-right font-bold text-[#5c7c65]">
                       {formatCurrency(data.totalIncome)}
                     </TableCell>
-                    <TableCell className="text-right font-bold text-red-700">
+                    <TableCell className="text-right font-bold text-[#d4856a]">
                       {formatCurrency(data.totalExpenses)}
                     </TableCell>
                     <TableCell
                       className={`text-right font-bold ${
-                        data.totalNet >= 0 ? "text-blue-700" : "text-red-700"
+                        data.totalNet >= 0 ? "text-[#5c7c65]" : "text-[#d4856a]"
                       }`}
                     >
                       {formatCurrency(data.totalNet)}

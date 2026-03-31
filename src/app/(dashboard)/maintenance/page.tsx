@@ -126,7 +126,7 @@ export default function MaintenancePage() {
                 onClick={() => setStatusFilter(sf.value)}
                 className={`px-3 py-1.5 text-xs font-medium rounded-full border transition-colors ${
                   statusFilter === sf.value
-                    ? "bg-blue-50 text-blue-700 border-blue-200"
+                    ? "bg-[#e8f0e9] text-[#3d5e44] border-[#b8ccbe]"
                     : "bg-white text-gray-600 border-gray-200 hover:bg-gray-50"
                 }`}
               >
@@ -168,7 +168,7 @@ export default function MaintenancePage() {
       {!loading && error && (
         <Card padding="lg">
           <div className="text-center">
-            <p className="text-sm text-red-600">{error}</p>
+            <p className="text-sm text-[#c75a3a]">{error}</p>
             <Button
               variant="outline"
               size="sm"

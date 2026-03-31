@@ -73,7 +73,7 @@ export function Modal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Overlay */}
       <div
-        className="fixed inset-0 bg-black/50 animate-in fade-in duration-200"
+        className="fixed inset-0 bg-black/30 animate-in fade-in duration-300"
         onClick={closeOnOverlayClick ? onClose : undefined}
         aria-hidden="true"
       />
@@ -85,8 +85,8 @@ export function Modal({
         aria-modal="true"
         aria-label={title}
         className={cn(
-          "relative z-10 w-full rounded-xl border border-gray-200 bg-white shadow-xl",
-          "animate-in fade-in zoom-in-95 duration-200",
+          "relative z-10 w-full rounded-2xl border border-border/50 bg-card shadow-xl",
+          "animate-in fade-in zoom-in-95 duration-300",
           sizeStyles[size],
           className
         )}
@@ -95,10 +95,10 @@ export function Modal({
         {(title || description) && (
           <div className="px-6 pt-6 pb-2">
             {title && (
-              <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+              <h2 className="text-lg font-semibold text-card-foreground">{title}</h2>
             )}
             {description && (
-              <p className="mt-1 text-sm text-gray-500">{description}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{description}</p>
             )}
           </div>
         )}
@@ -106,7 +106,7 @@ export function Modal({
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-md p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="absolute right-4 top-4 rounded-lg p-1 text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30"
           aria-label="Close"
         >
           <X className="h-4 w-4" />
@@ -127,7 +127,7 @@ export function ModalFooter({
   return (
     <div
       className={cn(
-        "flex items-center justify-end gap-3 border-t border-gray-100 px-6 py-4",
+        "flex items-center justify-end gap-3 border-t border-border/50 px-6 py-4",
         className
       )}
       {...props}

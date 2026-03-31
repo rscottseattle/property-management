@@ -88,7 +88,7 @@ export default function PropertiesPage() {
       <Badge
         variant="info"
         size="sm"
-        className="bg-purple-50 text-purple-700 border-purple-200"
+        className="bg-[#f5eddc] text-[#8a6d2f] border-[#e8dcc5]"
       >
         Long-term
       </Badge>
@@ -141,7 +141,7 @@ export default function PropertiesPage() {
       {!loading && error && (
         <Card padding="lg">
           <div className="text-center">
-            <p className="text-sm text-red-600">{error}</p>
+            <p className="text-sm text-[#c75a3a]">{error}</p>
             <Button
               variant="outline"
               size="sm"

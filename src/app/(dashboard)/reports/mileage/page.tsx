@@ -261,7 +261,7 @@ export default function MileagePage() {
                 <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Total Deduction
                 </p>
-                <p className="text-2xl font-semibold text-green-700 mt-1">
+                <p className="text-2xl font-semibold text-[#5c7c65] mt-1">
                   {formatCurrency(data.totalDeduction)}
                 </p>
               </div>
@@ -322,7 +322,7 @@ export default function MileagePage() {
                             maximumFractionDigits: 1,
                           })}
                         </TableCell>
-                        <TableCell className="text-right text-green-700 font-medium">
+                        <TableCell className="text-right text-[#5c7c65] font-medium">
                           {formatCurrency(entry.distance * IRS_MILEAGE_RATE)}
                         </TableCell>
                       </TableRow>

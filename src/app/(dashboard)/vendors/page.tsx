@@ -135,7 +135,7 @@ export default function VendorsPage() {
       {!loading && error && (
         <Card padding="lg">
           <div className="text-center">
-            <p className="text-sm text-red-600">{error}</p>
+            <p className="text-sm text-[#c75a3a]">{error}</p>
             <Button
               variant="outline"
               size="sm"

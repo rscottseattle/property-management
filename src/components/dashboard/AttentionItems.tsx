@@ -31,14 +31,14 @@ const iconMap: Record<string, typeof AlertTriangle> = {
 };
 
 const priorityStyles: Record<string, string> = {
-  urgent: "bg-red-50 border-red-200",
-  warning: "bg-amber-50 border-amber-200",
+  urgent: "bg-[#fef7f5] border-[#f0d4cb]",
+  warning: "bg-[#f5eddc] border-[#e5d9b8]",
   info: "bg-white border-gray-200",
 };
 
 const iconStyles: Record<string, string> = {
-  urgent: "text-red-600",
-  warning: "text-amber-600",
+  urgent: "text-[#d4856a]",
+  warning: "text-[#c9a96e]",
   info: "text-gray-500",
 };
 
@@ -50,8 +50,8 @@ export function AttentionItems({ items }: AttentionItemsProps) {
       </CardHeader>
       <CardContent>
         {items.length === 0 ? (
-          <div className="flex items-center gap-3 py-4 text-green-700">
-            <CheckCircle2 className="h-5 w-5 text-green-600" />
+          <div className="flex items-center gap-3 py-4 text-[#5c7c65]">
+            <CheckCircle2 className="h-5 w-5 text-[#5c7c65]" />
             <span className="text-sm font-medium">
               All good! No items need attention.
             </span>

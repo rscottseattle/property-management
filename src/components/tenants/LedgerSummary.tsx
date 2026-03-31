@@ -22,24 +22,24 @@ const cards = [
     key: "charges",
     label: "Total Charges",
     icon: Receipt,
-    bgColor: "bg-blue-50",
-    iconColor: "text-blue-600",
+    bgColor: "bg-[#e5eef5]",
+    iconColor: "text-[#7b9eb8]",
     valueColor: "text-gray-900",
   },
   {
     key: "payments",
     label: "Total Payments",
     icon: Banknote,
-    bgColor: "bg-green-50",
-    iconColor: "text-green-600",
+    bgColor: "bg-[#e8f0e9]",
+    iconColor: "text-[#5c7c65]",
     valueColor: "text-gray-900",
   },
   {
     key: "credits",
     label: "Credits / Adjustments",
     icon: Gift,
-    bgColor: "bg-purple-50",
-    iconColor: "text-purple-600",
+    bgColor: "bg-[#f5eddc]",
+    iconColor: "text-[#c9a96e]",
     valueColor: "text-gray-900",
   },
   {
@@ -75,18 +75,18 @@ export function LedgerSummary({
 
         const bgColor = isBalance
           ? balanceOwed
-            ? "bg-red-50"
-            : "bg-green-50"
+            ? "bg-[#fae8e3]"
+            : "bg-[#e8f0e9]"
           : card.bgColor;
         const iconColor = isBalance
           ? balanceOwed
-            ? "text-red-600"
-            : "text-green-600"
+            ? "text-[#c75a3a]"
+            : "text-[#5c7c65]"
           : card.iconColor;
         const valueColor = isBalance
           ? balanceOwed
-            ? "text-red-600"
-            : "text-green-600"
+            ? "text-[#c75a3a]"
+            : "text-[#5c7c65]"
           : card.valueColor;
 
         return (

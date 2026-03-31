@@ -144,7 +144,7 @@ export default function TenantsPage() {
       {!loading && error && (
         <Card padding="lg">
           <div className="text-center">
-            <p className="text-sm text-red-600">{error}</p>
+            <p className="text-sm text-[#c75a3a]">{error}</p>
             <Button
               variant="outline"
               size="sm"
@@ -216,8 +216,8 @@ export default function TenantsPage() {
                 <div className="p-5 space-y-3">
                   {/* Header: avatar + name */}
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50">
-                      <User className="h-5 w-5 text-blue-600" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#e8f0e9]">
+                      <User className="h-5 w-5 text-[#5c7c65]" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h3 className="text-sm font-semibold text-gray-900 truncate">

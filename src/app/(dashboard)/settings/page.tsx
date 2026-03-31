@@ -133,7 +133,7 @@ export default function SettingsPage() {
                   flex items-center gap-2 whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition-colors
                   ${
                     isActive
-                      ? "border-blue-600 text-blue-600"
+                      ? "border-[#5c7c65] text-[#5c7c65]"
                       : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
                   }
                 `}
@@ -261,7 +261,7 @@ function ProfileTab() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Avatar */}
           <div className="flex items-center gap-4">
-            <div className="h-16 w-16 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 text-xl font-semibold">
+            <div className="h-16 w-16 rounded-full bg-[#e8f0e9] flex items-center justify-center text-[#3d5e44] text-xl font-semibold">
               {initials}
             </div>
             <div>
@@ -658,7 +658,7 @@ function NotificationsTab() {
                 onClick={() => toggle(opt.key)}
                 className={`
                   relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors
-                  ${notifPrefs[opt.key] ? "bg-blue-600" : "bg-gray-200"}
+                  ${notifPrefs[opt.key] ? "bg-[#5c7c65]" : "bg-gray-200"}
                 `}
               >
                 <span
@@ -774,9 +774,9 @@ function DataTab() {
       </Card>
 
       {/* Danger Zone */}
-      <Card className="border-red-200">
+      <Card className="border-[#e8b9a8]">
         <CardHeader>
-          <CardTitle className="text-red-600">Danger Zone</CardTitle>
+          <CardTitle className="text-[#c75a3a]">Danger Zone</CardTitle>
           <CardDescription>
             Permanently delete your account and all associated data. This action
             cannot be undone.
@@ -805,8 +805,8 @@ function DataTab() {
         size="sm"
       >
         <div className="space-y-4">
-          <div className="rounded-lg bg-red-50 border border-red-200 p-3">
-            <p className="text-sm text-red-800">
+          <div className="rounded-lg bg-[#fae8e3] border border-[#e8b9a8] p-3">
+            <p className="text-sm text-[#a04025]">
               All properties, tenants, leases, transactions, maintenance
               requests, vendors, guests, and bookings will be permanently
               deleted.
@@ -822,7 +822,7 @@ function DataTab() {
               value={deleteConfirm}
               onChange={(e) => setDeleteConfirm(e.target.value)}
               placeholder="DELETE"
-              className="block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500"
+              className="block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c75a3a]/20 focus:border-[#c75a3a]"
             />
           </div>
         </div>

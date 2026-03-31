@@ -272,10 +272,10 @@ export default function RentRollPage() {
 
       {/* Batch actions bar */}
       {selectedIds.size > 0 && (
-        <Card className="border-blue-200 bg-blue-50">
+        <Card className="border-[#b3d1bc] bg-[#e8f0e9]">
           <CardContent className="py-3">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-blue-700">
+              <span className="text-sm font-medium text-[#5c7c65]">
                 {selectedIds.size} entr{selectedIds.size === 1 ? "y" : "ies"}{" "}
                 selected
               </span>
@@ -320,7 +320,7 @@ export default function RentRollPage() {
                     <th className="h-10 px-4 text-left w-10">
                       <input
                         type="checkbox"
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="rounded border-gray-300 text-[#5c7c65] focus:ring-[#5c7c65]"
                         checked={
                           unpaidEntries.length > 0 &&
                           selectedIds.size === unpaidEntries.length
@@ -370,7 +370,7 @@ export default function RentRollPage() {
                           {isUnpaid ? (
                             <input
                               type="checkbox"
-                              className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                              className="rounded border-gray-300 text-[#5c7c65] focus:ring-[#5c7c65]"
                               checked={selectedIds.has(entry.id)}
                               onChange={() => toggleSelect(entry.id)}
                             />
@@ -436,7 +436,7 @@ export default function RentRollPage() {
                         {isUnpaid && (
                           <input
                             type="checkbox"
-                            className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-0.5"
+                            className="rounded border-gray-300 text-[#5c7c65] focus:ring-[#5c7c65] mt-0.5"
                             checked={selectedIds.has(entry.id)}
                             onChange={() => toggleSelect(entry.id)}
                           />

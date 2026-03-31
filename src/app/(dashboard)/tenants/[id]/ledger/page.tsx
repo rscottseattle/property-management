@@ -285,7 +285,7 @@ export default function TenantLedgerPage() {
             Current Balance:{" "}
             <span
               className={`text-base font-semibold ${
-                ledger.currentBalance > 0 ? "text-red-600" : "text-green-600"
+                ledger.currentBalance > 0 ? "text-[#c75a3a]" : "text-[#5c7c65]"
               }`}
             >
               {formatCurrency(ledger.currentBalance)}
@@ -295,7 +295,7 @@ export default function TenantLedgerPage() {
             size="sm"
             href={`/finances/new?type=INCOME&tenantId=${tenantId}`}
             leftIcon={<DollarSign className="h-4 w-4" />}
-            className="bg-green-600 hover:bg-green-700 text-white"
+            className="bg-[#5c7c65] hover:bg-[#4a6952] text-white"
           >
             Record Payment
           </Button>

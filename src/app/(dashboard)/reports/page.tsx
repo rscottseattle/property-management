@@ -17,42 +17,42 @@ const REPORT_CARDS = [
     description: "Generate IRS Schedule E report by property for any tax year",
     icon: FileSpreadsheet,
     href: "/reports/schedule-e",
-    color: "bg-blue-100 text-blue-600",
+    color: "bg-[#e8f0e9] text-[#5c7c65]",
   },
   {
     title: "Income Statement",
     description: "Income and expense breakdown by property and period",
     icon: TrendingUp,
     href: "/reports/income-statement",
-    color: "bg-green-100 text-green-600",
+    color: "bg-[#e5eef5] text-[#7b9eb8]",
   },
   {
     title: "Cash Flow",
     description: "Monthly income vs expense trend over time",
     icon: BarChart3,
     href: "/reports/cash-flow",
-    color: "bg-purple-100 text-purple-600",
+    color: "bg-[#f5eddc] text-[#c9a96e]",
   },
   {
     title: "Property Comparison",
     description: "Compare profitability across properties",
     icon: Building2,
     href: "/reports/property-comparison",
-    color: "bg-orange-100 text-orange-600",
+    color: "bg-[#fae8e3] text-[#d4856a]",
   },
   {
     title: "Mileage Log",
     description: "Track mileage for property visits",
     icon: Car,
     href: "/reports/mileage",
-    color: "bg-teal-100 text-teal-600",
+    color: "bg-[#e8f0e9] text-[#5c7c65]",
   },
   {
     title: "STR Analytics",
     description: "Occupancy, ADR, RevPAN, and revenue breakdown for short-term rentals",
     icon: Calendar,
     href: "/reports/str-analytics",
-    color: "bg-pink-100 text-pink-600",
+    color: "bg-[#e5eef5] text-[#7b9eb8]",
   },
 ] as const;
 
@@ -73,7 +73,7 @@ export default function ReportsPage() {
             <Link
               key={card.href}
               href={card.href}
-              className="group rounded-lg border border-gray-200 bg-white shadow-sm p-6 transition-shadow hover:shadow-md flex items-start gap-4"
+              className="group rounded-2xl border border-gray-200 bg-white shadow-sm p-6 transition-shadow hover:shadow-md flex items-start gap-4"
             >
               <div
                 className={`shrink-0 rounded-full p-3 ${card.color}`}
@@ -81,12 +81,12 @@ export default function ReportsPage() {
                 <Icon className="h-5 w-5" />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-sm font-semibold text-gray-900 group-hover:text-[#5c7c65] transition-colors">
                   {card.title}
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">{card.description}</p>
               </div>
-              <ArrowRight className="h-5 w-5 shrink-0 text-gray-300 group-hover:text-blue-500 transition-colors mt-0.5" />
+              <ArrowRight className="h-5 w-5 shrink-0 text-gray-300 group-hover:text-[#5c7c65] transition-colors mt-0.5" />
             </Link>
           );
         })}

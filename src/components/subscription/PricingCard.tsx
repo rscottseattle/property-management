@@ -39,12 +39,12 @@ export function PricingCard({
     <Card
       className={cn(
         "relative flex flex-col",
-        isPopular && "border-blue-500 border-2 shadow-lg shadow-blue-100"
+        isPopular && "border-[#5c7c65] border-2 shadow-lg shadow-[#5c7c65]/10"
       )}
     >
       {isPopular && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="inline-flex items-center gap-1 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+          <span className="inline-flex items-center gap-1 rounded-full bg-[#5c7c65] px-3 py-1 text-xs font-semibold text-white">
             <Star className="h-3 w-3 fill-current" />
             Most Popular
           </span>
@@ -76,7 +76,7 @@ export function PricingCard({
         <ul className="mb-8 flex-1 space-y-3">
           {features.map((feature) => (
             <li key={feature} className="flex items-start gap-2">
-              <Check className="mt-0.5 h-4 w-4 shrink-0 text-green-600" />
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#5c7c65]" />
               <span className="text-sm text-muted-foreground">{feature}</span>
             </li>
           ))}

@@ -142,7 +142,7 @@ export default function BookingsPage() {
             onClick={() => setViewMode("list")}
             className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium transition-colors ${
               viewMode === "list"
-                ? "bg-blue-50 text-blue-700"
+                ? "bg-[#e8f0e9] text-[#3d5e44]"
                 : "text-gray-500 hover:text-gray-700 hover:bg-gray-50"
             }`}
           >
@@ -154,7 +154,7 @@ export default function BookingsPage() {
             onClick={() => setViewMode("calendar")}
             className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium border-l border-gray-200 transition-colors ${
               viewMode === "calendar"
-                ? "bg-blue-50 text-blue-700"
+                ? "bg-[#e8f0e9] text-[#3d5e44]"
                 : "text-gray-500 hover:text-gray-700 hover:bg-gray-50"
             }`}
           >
@@ -175,7 +175,7 @@ export default function BookingsPage() {
                   onClick={() => setStatusFilter(sf.value)}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                     statusFilter === sf.value
-                      ? "bg-blue-100 text-blue-700"
+                      ? "bg-[#e8f0e9] text-[#3d5e44]"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
                 >
@@ -217,7 +217,7 @@ export default function BookingsPage() {
       {!loading && error && (
         <Card padding="lg">
           <div className="text-center">
-            <p className="text-sm text-red-600">{error}</p>
+            <p className="text-sm text-[#c75a3a]">{error}</p>
             <Button
               variant="outline"
               size="sm"

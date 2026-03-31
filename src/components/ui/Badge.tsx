@@ -2,12 +2,12 @@ import { forwardRef, type HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 const variantStyles = {
-  default: "bg-gray-100 text-gray-800 border-gray-200",
-  success: "bg-green-50 text-green-700 border-green-200",
-  warning: "bg-yellow-50 text-yellow-700 border-yellow-200",
-  danger: "bg-red-50 text-red-700 border-red-200",
-  info: "bg-blue-50 text-blue-700 border-blue-200",
-  neutral: "bg-gray-50 text-gray-600 border-gray-200",
+  default: "bg-primary/10 text-primary border-transparent",
+  success: "bg-[#e8f0e9] text-[#3d5e44] border-transparent",
+  warning: "bg-[#f5eddc] text-[#8a6d2f] border-transparent",
+  danger: "bg-[#fae8e3] text-[#a04025] border-transparent",
+  info: "bg-[#e5eef5] text-[#4a6f8a] border-transparent",
+  neutral: "bg-muted text-muted-foreground border-transparent",
 } as const;
 
 const sizeStyles = {
@@ -16,12 +16,12 @@ const sizeStyles = {
 } as const;
 
 const dotColors = {
-  default: "bg-gray-500",
-  success: "bg-green-500",
-  warning: "bg-yellow-500",
-  danger: "bg-red-500",
-  info: "bg-blue-500",
-  neutral: "bg-gray-400",
+  default: "bg-primary",
+  success: "bg-[#5c7c65]",
+  warning: "bg-[#c9a96e]",
+  danger: "bg-[#c75a3a]",
+  info: "bg-[#7b9eb8]",
+  neutral: "bg-muted-foreground",
 } as const;
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {

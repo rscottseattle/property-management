@@ -70,10 +70,10 @@ export default function RegisterPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-slate-900 text-center mb-2">
+      <h1 className="text-2xl font-bold text-[#1a1a1a] text-center mb-2">
         Create your account
       </h1>
-      <p className="text-sm text-slate-500 text-center mb-6">
+      <p className="text-sm text-[#6b6b6b] text-center mb-6">
         Get started with Property Manager
       </p>
 
@@ -87,18 +87,18 @@ export default function RegisterPage() {
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-slate-700 mb-1"
+            className="block text-sm font-medium text-[#1a1a1a] mb-1"
           >
             Full name
           </label>
           <div className="relative">
-            <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6b6b6b]" />
             <input
               id="name"
               type="text"
               autoComplete="name"
               placeholder="Jane Smith"
-              className="w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-10 pr-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+              className="w-full rounded-lg border border-[#e0e1dc] bg-white py-2.5 pl-10 pr-3 text-sm text-[#1a1a1a] placeholder:text-[#6b6b6b] focus:border-[#5c7c65] focus:outline-none focus:ring-2 focus:ring-[#5c7c65]/20"
               {...register("name")}
             />
           </div>
@@ -110,18 +110,18 @@ export default function RegisterPage() {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-slate-700 mb-1"
+            className="block text-sm font-medium text-[#1a1a1a] mb-1"
           >
             Email
           </label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6b6b6b]" />
             <input
               id="email"
               type="email"
               autoComplete="email"
               placeholder="you@example.com"
-              className="w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-10 pr-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+              className="w-full rounded-lg border border-[#e0e1dc] bg-white py-2.5 pl-10 pr-3 text-sm text-[#1a1a1a] placeholder:text-[#6b6b6b] focus:border-[#5c7c65] focus:outline-none focus:ring-2 focus:ring-[#5c7c65]/20"
               {...register("email")}
             />
           </div>
@@ -133,18 +133,18 @@ export default function RegisterPage() {
         <div>
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-slate-700 mb-1"
+            className="block text-sm font-medium text-[#1a1a1a] mb-1"
           >
             Password
           </label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6b6b6b]" />
             <input
               id="password"
               type="password"
               autoComplete="new-password"
               placeholder="At least 8 characters"
-              className="w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-10 pr-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+              className="w-full rounded-lg border border-[#e0e1dc] bg-white py-2.5 pl-10 pr-3 text-sm text-[#1a1a1a] placeholder:text-[#6b6b6b] focus:border-[#5c7c65] focus:outline-none focus:ring-2 focus:ring-[#5c7c65]/20"
               {...register("password")}
             />
           </div>
@@ -158,18 +158,18 @@ export default function RegisterPage() {
         <div>
           <label
             htmlFor="confirmPassword"
-            className="block text-sm font-medium text-slate-700 mb-1"
+            className="block text-sm font-medium text-[#1a1a1a] mb-1"
           >
             Confirm password
           </label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6b6b6b]" />
             <input
               id="confirmPassword"
               type="password"
               autoComplete="new-password"
               placeholder="Confirm your password"
-              className="w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-10 pr-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+              className="w-full rounded-lg border border-[#e0e1dc] bg-white py-2.5 pl-10 pr-3 text-sm text-[#1a1a1a] placeholder:text-[#6b6b6b] focus:border-[#5c7c65] focus:outline-none focus:ring-2 focus:ring-[#5c7c65]/20"
               {...register("confirmPassword")}
             />
           </div>
@@ -183,7 +183,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full rounded-lg bg-indigo-600 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="w-full rounded-lg bg-[#5c7c65] py-2.5 text-sm font-medium text-white hover:bg-[#4a6853] focus:outline-none focus:ring-2 focus:ring-[#5c7c65]/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {isLoading ? "Creating account..." : "Create account"}
         </button>
@@ -191,17 +191,17 @@ export default function RegisterPage() {
 
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-slate-200" />
+          <div className="w-full border-t border-[#e0e1dc]" />
         </div>
         <div className="relative flex justify-center text-xs">
-          <span className="bg-white px-2 text-slate-500">Or continue with</span>
+          <span className="bg-white px-2 text-[#6b6b6b]">Or continue with</span>
         </div>
       </div>
 
       <button
         type="button"
         onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-        className="w-full rounded-lg border border-slate-300 bg-white py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-colors flex items-center justify-center gap-2"
+        className="w-full rounded-lg border border-[#e0e1dc] bg-white py-2.5 text-sm font-medium text-[#1a1a1a] hover:bg-[#e8e9e4] focus:outline-none focus:ring-2 focus:ring-[#5c7c65]/20 transition-colors flex items-center justify-center gap-2"
       >
         <svg className="h-4 w-4" viewBox="0 0 24 24">
           <path
@@ -224,11 +224,11 @@ export default function RegisterPage() {
         Sign up with Google
       </button>
 
-      <p className="mt-6 text-center text-sm text-slate-500">
+      <p className="mt-6 text-center text-sm text-[#6b6b6b]">
         Already have an account?{" "}
         <Link
           href="/login"
-          className="font-medium text-indigo-600 hover:text-indigo-500"
+          className="font-medium text-[#5c7c65] hover:text-[#5c7c65]/80"
         >
           Sign in
         </Link>

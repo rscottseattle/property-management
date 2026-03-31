@@ -35,15 +35,15 @@ export function StarRating({
             key={star}
             type="button"
             onClick={() => onChange(star)}
-            className="focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-sm transition-colors"
+            className="focus:outline-none focus:ring-2 focus:ring-[#5c7c65]/30 rounded-sm transition-colors"
             aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
           >
             <Star
               className={cn(
                 iconSize,
                 filled
-                  ? "text-yellow-400 fill-yellow-400"
-                  : "text-gray-300 hover:text-yellow-300"
+                  ? "text-[#c9a96e] fill-[#c9a96e]"
+                  : "text-[#d4d4d4] hover:text-[#c9a96e]/60"
               )}
             />
           </button>
@@ -53,8 +53,8 @@ export function StarRating({
             className={cn(
               iconSize,
               filled
-                ? "text-yellow-400 fill-yellow-400"
-                : "text-gray-300"
+                ? "text-[#c9a96e] fill-[#c9a96e]"
+                : "text-[#d4d4d4]"
             )}
           />
         );

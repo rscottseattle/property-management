@@ -65,7 +65,7 @@ function KPICard({
   return (
     <Card padding="md">
       <div className="flex items-center gap-3">
-        <div className={`rounded-lg p-2.5 ${color}`}>
+        <div className={`rounded-full h-10 w-10 flex items-center justify-center ${color}`}>
           <Icon className="h-5 w-5" />
         </div>
         <div>
@@ -82,9 +82,9 @@ function KPICard({
 // ---------- Platform color helper ----------
 
 const PLATFORM_COLORS: Record<string, string> = {
-  AIRBNB: "bg-pink-100 text-pink-700",
-  VRBO: "bg-blue-100 text-blue-700",
-  DIRECT: "bg-green-100 text-green-700",
+  AIRBNB: "bg-[#fae8e3] text-[#d4856a]",
+  VRBO: "bg-[#e5eef5] text-[#7b9eb8]",
+  DIRECT: "bg-[#e8f0e9] text-[#5c7c65]",
   OTHER: "bg-gray-100 text-gray-700",
 };
 
@@ -239,14 +239,14 @@ export default function STRAnalyticsPage() {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#5c7c65]"
             />
             <span className="text-sm text-gray-400">to</span>
             <input
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#5c7c65]"
             />
           </div>
           {units.length > 0 && (
@@ -296,25 +296,25 @@ export default function STRAnalyticsPage() {
               label="Total Revenue"
               value={formatCurrency(analytics.totalRevenue)}
               icon={DollarSign}
-              color="bg-green-50 text-green-600"
+              color="bg-[#e8f0e9] text-[#5c7c65]"
             />
             <KPICard
               label="Occupancy Rate"
               value={`${analytics.occupancyRate.toFixed(1)}%`}
               icon={Percent}
-              color="bg-blue-50 text-blue-600"
+              color="bg-[#e5eef5] text-[#7b9eb8]"
             />
             <KPICard
               label="ADR"
               value={formatCurrency(analytics.adr)}
               icon={TrendingUp}
-              color="bg-purple-50 text-purple-600"
+              color="bg-[#f5eddc] text-[#c9a96e]"
             />
             <KPICard
               label="RevPAN"
               value={formatCurrency(analytics.revpan)}
               icon={BarChart3}
-              color="bg-orange-50 text-orange-600"
+              color="bg-[#fae8e3] text-[#d4856a]"
             />
           </div>
 
@@ -360,7 +360,7 @@ export default function STRAnalyticsPage() {
                           <td className="px-4 py-3 font-medium text-gray-900">
                             {u.unitLabel}
                           </td>
-                          <td className="px-4 py-3 text-right font-medium text-green-600">
+                          <td className="px-4 py-3 text-right font-medium text-[#5c7c65]">
                             {formatCurrency(u.revenue)}
                           </td>
                           <td className="px-4 py-3 text-right text-gray-700">
@@ -418,11 +418,11 @@ export default function STRAnalyticsPage() {
                           <div
                             className={`h-full rounded-full ${
                               p.platform === "AIRBNB"
-                                ? "bg-pink-400"
+                                ? "bg-[#d4856a]"
                                 : p.platform === "VRBO"
-                                ? "bg-blue-400"
+                                ? "bg-[#7b9eb8]"
                                 : p.platform === "DIRECT"
-                                ? "bg-green-400"
+                                ? "bg-[#5c7c65]"
                                 : "bg-gray-400"
                             }`}
                             style={{ width: `${Math.min(pct, 100)}%` }}
@@ -472,7 +472,7 @@ export default function STRAnalyticsPage() {
                           <td className="px-4 py-3 font-medium text-gray-900">
                             {m.month}
                           </td>
-                          <td className="px-4 py-3 text-right font-medium text-green-600">
+                          <td className="px-4 py-3 text-right font-medium text-[#5c7c65]">
                             {formatCurrency(m.revenue)}
                           </td>
                           <td className="px-4 py-3 text-right text-gray-700">

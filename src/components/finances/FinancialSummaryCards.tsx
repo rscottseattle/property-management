@@ -29,7 +29,7 @@ function StatCard({
   return (
     <Card padding="md">
       <div className="flex items-center gap-3">
-        <div className={cn("rounded-lg p-2.5", iconBg)}>
+        <div className={cn("rounded-full h-10 w-10 flex items-center justify-center", iconBg)}>
           <Icon className={cn("h-5 w-5", iconColor)} />
         </div>
         <div className="min-w-0">
@@ -59,33 +59,33 @@ export function FinancialSummaryCards({
         label="Total Income"
         value={formatCurrency(totalIncome)}
         icon={DollarSign}
-        iconBg="bg-green-50"
-        iconColor="text-green-600"
-        valueColor="text-green-700"
+        iconBg="bg-[#e8f0e9]"
+        iconColor="text-[#5c7c65]"
+        valueColor="text-[#5c7c65]"
       />
       <StatCard
         label="Total Expenses"
         value={formatCurrency(totalExpenses)}
         icon={TrendingDown}
-        iconBg="bg-red-50"
-        iconColor="text-red-600"
-        valueColor="text-red-700"
+        iconBg="bg-[#fae8e3]"
+        iconColor="text-[#d4856a]"
+        valueColor="text-[#d4856a]"
       />
       <StatCard
         label="Net Income"
         value={formatCurrency(netIncome)}
         icon={Calculator}
-        iconBg={netIsPositive ? "bg-blue-50" : "bg-red-50"}
-        iconColor={netIsPositive ? "text-blue-600" : "text-red-600"}
-        valueColor={netIsPositive ? "text-blue-700" : "text-red-700"}
+        iconBg={netIsPositive ? "bg-[#e8f0e9]" : "bg-[#fae8e3]"}
+        iconColor={netIsPositive ? "text-[#5c7c65]" : "text-[#d4856a]"}
+        valueColor={netIsPositive ? "text-[#5c7c65]" : "text-[#d4856a]"}
       />
       <StatCard
         label="Pending"
         value={String(pendingCount)}
         icon={Clock}
-        iconBg="bg-yellow-50"
-        iconColor="text-yellow-600"
-        valueColor="text-yellow-700"
+        iconBg="bg-[#f5eddc]"
+        iconColor="text-[#c9a96e]"
+        valueColor="text-[#c9a96e]"
       />
     </div>
   );
